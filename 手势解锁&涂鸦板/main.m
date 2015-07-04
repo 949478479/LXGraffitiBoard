@@ -6,7 +6,7 @@
 //  Copyright (c) 2015年 949478479. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {

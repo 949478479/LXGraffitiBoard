@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  LXViewController.h
 //  手势解锁&涂鸦板
 //
 //  Created by 从今以后 on 15/7/4.
@@ -8,10 +8,6 @@
 
 @import UIKit;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
-
+@interface LXViewController : UIViewController
 
 @end
-

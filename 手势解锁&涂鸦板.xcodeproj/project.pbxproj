@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		18C96D641B4765AE007A8192 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D631B4765AE007A8192 /* main.m */; };
-		18C96D671B4765AE007A8192 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D661B4765AE007A8192 /* AppDelegate.m */; };
-		18C96D6A1B4765AE007A8192 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D691B4765AE007A8192 /* ViewController.m */; };
 		18C96D6D1B4765AE007A8192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C96D6B1B4765AE007A8192 /* Main.storyboard */; };
 		18C96D6F1B4765AE007A8192 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C96D6E1B4765AE007A8192 /* Images.xcassets */; };
-		18C96D721B4765AE007A8192 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18C96D701B4765AE007A8192 /* LaunchScreen.xib */; };
 		18C96D7E1B4765AE007A8192 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D7D1B4765AE007A8192 /* ________Tests.m */; };
+		18C96D891B476643007A8192 /* LXUnlockingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D881B476643007A8192 /* LXUnlockingView.m */; };
+		18C96D901B476701007A8192 /* MBProgressHUD+LX.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D8C1B476701007A8192 /* MBProgressHUD+LX.m */; };
+		18C96D911B476701007A8192 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18C96D8D1B476701007A8192 /* MBProgressHUD.bundle */; };
+		18C96D921B476701007A8192 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D8F1B476701007A8192 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-Wno-unused-macros"; }; };
+		18C96D951B476763007A8192 /* LXDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D941B476763007A8192 /* LXDrawingView.m */; };
+		18C96D981B4767C0007A8192 /* LXGraffitiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D971B4767C0007A8192 /* LXGraffitiView.m */; };
+		18C96D9C1B4778A2007A8192 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D9B1B4778A2007A8192 /* AppDelegate.m */; };
+		18C96DA21B4779BA007A8192 /* LXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96DA11B4779BA007A8192 /* LXViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +35,26 @@
 		18C96D5E1B4765AE007A8192 /* 手势解锁&涂鸦板.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "手势解锁&涂鸦板.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C96D621B4765AE007A8192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C96D631B4765AE007A8192 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		18C96D651B4765AE007A8192 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		18C96D661B4765AE007A8192 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18C96D681B4765AE007A8192 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		18C96D691B4765AE007A8192 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		18C96D6C1B4765AE007A8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18C96D6E1B4765AE007A8192 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		18C96D711B4765AE007A8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		18C96D771B4765AE007A8192 /* 手势解锁&涂鸦板Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "手势解锁&涂鸦板Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C96D7C1B4765AE007A8192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C96D7D1B4765AE007A8192 /* ________Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "________Tests.m"; sourceTree = "<group>"; };
+		18C96D871B476643007A8192 /* LXUnlockingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXUnlockingView.h; sourceTree = "<group>"; };
+		18C96D881B476643007A8192 /* LXUnlockingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXUnlockingView.m; sourceTree = "<group>"; };
+		18C96D8B1B476701007A8192 /* MBProgressHUD+LX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LX.h"; sourceTree = "<group>"; };
+		18C96D8C1B476701007A8192 /* MBProgressHUD+LX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+LX.m"; sourceTree = "<group>"; };
+		18C96D8D1B476701007A8192 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		18C96D8E1B476701007A8192 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		18C96D8F1B476701007A8192 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		18C96D931B476763007A8192 /* LXDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDrawingView.h; sourceTree = "<group>"; };
+		18C96D941B476763007A8192 /* LXDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDrawingView.m; sourceTree = "<group>"; };
+		18C96D961B4767C0007A8192 /* LXGraffitiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXGraffitiView.h; sourceTree = "<group>"; };
+		18C96D971B4767C0007A8192 /* LXGraffitiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXGraffitiView.m; sourceTree = "<group>"; };
+		18C96D9A1B4778A2007A8192 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		18C96D9B1B4778A2007A8192 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		18C96DA01B4779BA007A8192 /* LXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXViewController.h; sourceTree = "<group>"; };
+		18C96DA11B4779BA007A8192 /* LXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,13 +96,11 @@
 		18C96D601B4765AE007A8192 /* 手势解锁&涂鸦板 */ = {
 			isa = PBXGroup;
 			children = (
-				18C96D651B4765AE007A8192 /* AppDelegate.h */,
-				18C96D661B4765AE007A8192 /* AppDelegate.m */,
-				18C96D681B4765AE007A8192 /* ViewController.h */,
-				18C96D691B4765AE007A8192 /* ViewController.m */,
+				18C96D8A1B476701007A8192 /* MBProgressHUD */,
+				18C96D991B4767F7007A8192 /* View */,
 				18C96D6B1B4765AE007A8192 /* Main.storyboard */,
-				18C96D6E1B4765AE007A8192 /* Images.xcassets */,
-				18C96D701B4765AE007A8192 /* LaunchScreen.xib */,
+				18C96D9A1B4778A2007A8192 /* AppDelegate.h */,
+				18C96D9B1B4778A2007A8192 /* AppDelegate.m */,
 				18C96D611B4765AE007A8192 /* Supporting Files */,
 			);
 			path = "手势解锁&涂鸦板";
@@ -96,6 +109,7 @@
 		18C96D611B4765AE007A8192 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				18C96D6E1B4765AE007A8192 /* Images.xcassets */,
 				18C96D621B4765AE007A8192 /* Info.plist */,
 				18C96D631B4765AE007A8192 /* main.m */,
 			);
@@ -117,6 +131,33 @@
 				18C96D7C1B4765AE007A8192 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		18C96D8A1B476701007A8192 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				18C96D8B1B476701007A8192 /* MBProgressHUD+LX.h */,
+				18C96D8C1B476701007A8192 /* MBProgressHUD+LX.m */,
+				18C96D8D1B476701007A8192 /* MBProgressHUD.bundle */,
+				18C96D8E1B476701007A8192 /* MBProgressHUD.h */,
+				18C96D8F1B476701007A8192 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		18C96D991B4767F7007A8192 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18C96D931B476763007A8192 /* LXDrawingView.h */,
+				18C96D941B476763007A8192 /* LXDrawingView.m */,
+				18C96D961B4767C0007A8192 /* LXGraffitiView.h */,
+				18C96D971B4767C0007A8192 /* LXGraffitiView.m */,
+				18C96D871B476643007A8192 /* LXUnlockingView.h */,
+				18C96D881B476643007A8192 /* LXUnlockingView.m */,
+				18C96DA01B4779BA007A8192 /* LXViewController.h */,
+				18C96DA11B4779BA007A8192 /* LXViewController.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +204,7 @@
 		18C96D561B4765AE007A8192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LX;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = 949478479;
 				TargetAttributes = {
@@ -200,7 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C96D6D1B4765AE007A8192 /* Main.storyboard in Resources */,
-				18C96D721B4765AE007A8192 /* LaunchScreen.xib in Resources */,
+				18C96D911B476701007A8192 /* MBProgressHUD.bundle in Resources */,
 				18C96D6F1B4765AE007A8192 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,9 +261,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18C96D6A1B4765AE007A8192 /* ViewController.m in Sources */,
-				18C96D671B4765AE007A8192 /* AppDelegate.m in Sources */,
+				18C96DA21B4779BA007A8192 /* LXViewController.m in Sources */,
+				18C96D891B476643007A8192 /* LXUnlockingView.m in Sources */,
+				18C96D981B4767C0007A8192 /* LXGraffitiView.m in Sources */,
+				18C96D901B476701007A8192 /* MBProgressHUD+LX.m in Sources */,
+				18C96D921B476701007A8192 /* MBProgressHUD.m in Sources */,
 				18C96D641B4765AE007A8192 /* main.m in Sources */,
+				18C96D951B476763007A8192 /* LXDrawingView.m in Sources */,
+				18C96D9C1B4778A2007A8192 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,14 +297,6 @@
 				18C96D6C1B4765AE007A8192 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		18C96D701B4765AE007A8192 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				18C96D711B4765AE007A8192 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -352,6 +391,14 @@
 				INFOPLIST_FILE = "手势解锁&涂鸦板/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Weverything",
+					"-Wno-direct-ivar-access",
+					"-Wno-implicit-retain-self",
+					"-Wno-gnu-statement-expression",
+					"-Wno-objc-missing-property-synthesis",
+					"-Wno-gnu-conditional-omitted-operand",
+				);
 			};
 			name = Debug;
 		};
@@ -362,6 +409,14 @@
 				INFOPLIST_FILE = "手势解锁&涂鸦板/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Weverything",
+					"-Wno-direct-ivar-access",
+					"-Wno-implicit-retain-self",
+					"-Wno-gnu-statement-expression",
+					"-Wno-objc-missing-property-synthesis",
+					"-Wno-gnu-conditional-omitted-operand",
+				);
 			};
 			name = Release;
 		};
