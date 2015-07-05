@@ -1,5 +1,5 @@
 //
-//  LXDrawingView.h
+//  LXPaintingView.h
 //  手势解锁&涂鸦板
 //
 //  Created by 从今以后 on 15/7/4.
@@ -9,7 +9,7 @@
 @import UIKit;
 
 
-@interface LXDrawingView : UIView
+@interface LXPaintingView : UIView
 
 /** 线条粗细. */
 @property (nonatomic) IBInspectable CGFloat lineWidth;
@@ -21,10 +21,10 @@
 @property (readonly, nonatomic, getter=isEmpty) BOOL empty;
 
 /** 画板即将开始绘制时的通知 block. */
-@property (copy, nonatomic) void (^willBeginDrawingNotify)(LXDrawingView *drawingView);
+@property (copy, nonatomic) void (^willBeginDrawingNotify)(LXPaintingView *drawingView);
 
 /** 画板即将结束绘制时的通知 block. */
-@property (copy, nonatomic) void (^willEndDrawingNotify)(LXDrawingView *drawingView);
+@property (copy, nonatomic) void (^willEndDrawingNotify)(LXPaintingView *drawingView);
 
 
 /** 清屏. */

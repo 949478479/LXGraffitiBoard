@@ -1,5 +1,5 @@
 //
-//  LXGraffitiView.h
+//  LXControlView.h
 //  手势解锁&涂鸦板
 //
 //  Created by 从今以后 on 15/7/4.
@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface LXGraffitiView : UIView
+@interface LXControlView : UIView
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b6D-LB-CQr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2BY-QB-afp">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvP-8s-mA7" userLabel="Graffiti View" customClass="LXGraffitiView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dvP-8s-mA7" userLabel="Graffiti View" customClass="LXControlView">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <subviews>
                                     <slider contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="25" minValue="1" maxValue="49" translatesAutoresizingMaskIntoConstraints="NO" id="wg7-hf-0kD">
@@ -47,6 +47,14 @@
                                                 <state key="normal">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                                        <integer key="value" value="3"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="selectLineColor:" destination="dvP-8s-mA7" eventType="touchUpInside" id="7by-QA-5Bs"/>
                                                 </connections>
@@ -68,6 +76,25 @@
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="selectLineColor:" destination="dvP-8s-mA7" eventType="touchUpInside" id="Je7-Df-ajo"/>
+                                                </connections>
+                                            </button>
+                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-o0-yUv" userLabel="橙">
+                                                <rect key="frame" x="84" y="8" width="30" height="30"/>
+                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="QEC-J2-pwI"/>
+                                                    <constraint firstAttribute="height" constant="30" id="YJD-Er-Efx"/>
+                                                </constraints>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="selectLineColor:" destination="dvP-8s-mA7" eventType="touchUpInside" id="lel-x2-YAr"/>
                                                 </connections>
                                             </button>
                                             <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FeL-9f-T4Y" userLabel="黄">
@@ -222,25 +249,6 @@
                                                     <action selector="selectLineColor:" destination="dvP-8s-mA7" eventType="touchUpInside" id="GWx-fI-A72"/>
                                                 </connections>
                                             </button>
-                                            <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSd-o0-yUv" userLabel="橙">
-                                                <rect key="frame" x="84" y="8" width="30" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="30" id="QEC-J2-pwI"/>
-                                                    <constraint firstAttribute="height" constant="30" id="YJD-Er-Efx"/>
-                                                </constraints>
-                                                <state key="normal">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="selectLineColor:" destination="dvP-8s-mA7" eventType="touchUpInside" id="lel-x2-YAr"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -369,7 +377,7 @@
                                             <constraint firstAttribute="centerY" secondItem="Pco-p3-k3V" secondAttribute="centerY" id="xW1-TJ-t2Q"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcx-hN-91x" customClass="LXDrawingView">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hcx-hN-91x" customClass="LXPaintingView">
                                         <rect key="frame" x="20" y="134" width="984" height="614"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <userDefinedRuntimeAttributes>
@@ -407,6 +415,17 @@
                                     <outlet property="lineWidthSlider" destination="wg7-hf-0kD" id="8NH-ef-Hh8"/>
                                     <outlet property="saveButton" destination="8JQ-J1-fzl" id="drb-CG-Bp1"/>
                                     <outlet property="selectedColorButton" destination="n3S-nH-67U" id="v5r-0J-sef"/>
+                                    <outletCollection property="buttons" destination="n3S-nH-67U" id="pAH-sY-VGY"/>
+                                    <outletCollection property="buttons" destination="136-kN-mdE" id="IOs-MN-4OX"/>
+                                    <outletCollection property="buttons" destination="FeL-9f-T4Y" id="gT0-Xm-5iI"/>
+                                    <outletCollection property="buttons" destination="cEi-yj-P0v" id="vFc-q4-oCl"/>
+                                    <outletCollection property="buttons" destination="nyQ-UZ-ZP9" id="FcZ-Tm-x6g"/>
+                                    <outletCollection property="buttons" destination="K1U-VP-mYV" id="itQ-6e-rqT"/>
+                                    <outletCollection property="buttons" destination="bSd-o0-yUv" id="buW-Nw-aJu"/>
+                                    <outletCollection property="buttons" destination="Moe-be-dL6" id="MMU-28-pxk"/>
+                                    <outletCollection property="buttons" destination="Xuv-7S-QVK" id="R38-bW-sN1"/>
+                                    <outletCollection property="buttons" destination="HDi-Ue-KwJ" id="Xlw-SJ-4iT"/>
+                                    <outletCollection property="buttons" destination="UHT-kV-yBh" id="5jP-Jn-fQa"/>
                                 </connections>
                             </view>
                         </subviews>
@@ -462,9 +481,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="nTw-UG-zRx"/>
-                                <exclude reference="l0W-X8-Jae"/>
                                 <exclude reference="f2K-vD-JhN"/>
+                                <exclude reference="l0W-X8-Jae"/>
+                                <exclude reference="nTw-UG-zRx"/>
                                 <exclude reference="h1Y-zP-XTO"/>
                             </mask>
                         </variation>

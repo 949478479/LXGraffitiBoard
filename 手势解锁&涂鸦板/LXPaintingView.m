@@ -1,16 +1,16 @@
 //
-//  LXDrawingView.m
+//  LXPaintingView.m
 //  手势解锁&涂鸦板
 //
 //  Created by 从今以后 on 15/7/4.
 //  Copyright (c) 2015年 949478479. All rights reserved.
 //
 
-#import "LXDrawingView.h"
+#import "LXPaintingView.h"
 #import "MBProgressHUD+LX.h"
 
 
-@interface LXDrawingView ()
+@interface LXPaintingView ()
 
 /** 所有绘图路径. */
 @property (nonatomic) NSMutableArray *paths;
@@ -33,7 +33,7 @@
 @end
 
 
-@implementation LXDrawingView
+@implementation LXPaintingView
 
 #pragma mark 初始化
 
@@ -57,12 +57,13 @@
 
 - (void)p_commonInit
 {
-    _empty = YES;
-    _paths = [NSMutableArray array];
+    _empty      = YES;
+    _paths      = [NSMutableArray array];
     _lineColors = [NSMutableArray array];
     _lineWidths = [NSMutableArray array];
 
-    self.layer.drawsAsynchronously = YES;
+    self.layer.drawsAsynchronously  = YES;
+    self.clearsContextBeforeDrawing = NO;
 }
 
 #pragma mark 触摸事件
@@ -136,27 +137,27 @@
 - (void)p_handleWithTouches:(NSSet *)touches
 {
     UITouch *touch = touches.anyObject;
-    CGPoint point = [touch locationInView:self];
+    CGPoint  point = [touch locationInView:self];
 
     if (touch.phase == UITouchPhaseMoved) { // 添加移动点到当前路径.
 
         [[_paths lastObject] addLineToPoint:point];
 
         _previousPoint = _currentPoint;
-        _currentPoint = point;
+        _currentPoint  = point;
 
     } else if (touch.phase == UITouchPhaseBegan) { // 创建新路径并设置属性.
 
         UIBezierPath *path = [UIBezierPath bezierPath];
-        path.lineWidth = _lineWidth;
-        path.lineCapStyle = kCGLineCapRound;
+        path.lineWidth     = _lineWidth;
+        path.lineCapStyle  = kCGLineCapRound;
         path.lineJoinStyle = kCGLineJoinRound;
 
         [path moveToPoint:point];
         [path addLineToPoint:point]; // 为了点下去就能渲染出一个点.
 
         _previousPoint = point;
-        _currentPoint = point;
+        _currentPoint  = point;
 
         [_paths addObject:path];
         [_lineColors addObject:_lineColor];
@@ -198,14 +199,14 @@
     // 获取最后一笔的路径和宽度.
     UIBezierPath *lastPath = _paths.lastObject;
     if (!lastPath) return;
-    CGFloat lastLineWidth = [_lineWidths.lastObject doubleValue];
+    CGFloat lastLineWidth  = [_lineWidths.lastObject doubleValue];
 
     // 移除最后一笔的各种记录.
     [_paths removeLastObject];
     [_lineColors removeLastObject];
     [_lineWidths removeLastObject];
 
-    self.empty = _paths.count == 0;
+    self.empty = (_paths.count == 0);
 
     // 以最后一笔的路径配合宽度设置重绘范围.
     CGRect dirtyRect = [self p_dirtyRectForPathBounds:lastPath.bounds lineWidth:lastLineWidth];

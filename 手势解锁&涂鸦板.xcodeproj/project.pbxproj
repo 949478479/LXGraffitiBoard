@@ -15,8 +15,8 @@
 		18C96D901B476701007A8192 /* MBProgressHUD+LX.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D8C1B476701007A8192 /* MBProgressHUD+LX.m */; };
 		18C96D911B476701007A8192 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18C96D8D1B476701007A8192 /* MBProgressHUD.bundle */; };
 		18C96D921B476701007A8192 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D8F1B476701007A8192 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-Wno-unused-macros"; }; };
-		18C96D951B476763007A8192 /* LXDrawingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D941B476763007A8192 /* LXDrawingView.m */; };
-		18C96D981B4767C0007A8192 /* LXGraffitiView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D971B4767C0007A8192 /* LXGraffitiView.m */; };
+		18C96D951B476763007A8192 /* LXPaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D941B476763007A8192 /* LXPaintingView.m */; };
+		18C96D981B4767C0007A8192 /* LXControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D971B4767C0007A8192 /* LXControlView.m */; };
 		18C96D9C1B4778A2007A8192 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D9B1B4778A2007A8192 /* AppDelegate.m */; };
 		18C96DA21B4779BA007A8192 /* LXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96DA11B4779BA007A8192 /* LXViewController.m */; };
 /* End PBXBuildFile section */
@@ -47,10 +47,10 @@
 		18C96D8D1B476701007A8192 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		18C96D8E1B476701007A8192 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		18C96D8F1B476701007A8192 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		18C96D931B476763007A8192 /* LXDrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDrawingView.h; sourceTree = "<group>"; };
-		18C96D941B476763007A8192 /* LXDrawingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDrawingView.m; sourceTree = "<group>"; };
-		18C96D961B4767C0007A8192 /* LXGraffitiView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXGraffitiView.h; sourceTree = "<group>"; };
-		18C96D971B4767C0007A8192 /* LXGraffitiView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXGraffitiView.m; sourceTree = "<group>"; };
+		18C96D931B476763007A8192 /* LXPaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintingView.h; sourceTree = "<group>"; };
+		18C96D941B476763007A8192 /* LXPaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPaintingView.m; sourceTree = "<group>"; };
+		18C96D961B4767C0007A8192 /* LXControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXControlView.h; sourceTree = "<group>"; };
+		18C96D971B4767C0007A8192 /* LXControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXControlView.m; sourceTree = "<group>"; };
 		18C96D9A1B4778A2007A8192 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		18C96D9B1B4778A2007A8192 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		18C96DA01B4779BA007A8192 /* LXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXViewController.h; sourceTree = "<group>"; };
@@ -148,10 +148,10 @@
 		18C96D991B4767F7007A8192 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				18C96D931B476763007A8192 /* LXDrawingView.h */,
-				18C96D941B476763007A8192 /* LXDrawingView.m */,
-				18C96D961B4767C0007A8192 /* LXGraffitiView.h */,
-				18C96D971B4767C0007A8192 /* LXGraffitiView.m */,
+				18C96D931B476763007A8192 /* LXPaintingView.h */,
+				18C96D941B476763007A8192 /* LXPaintingView.m */,
+				18C96D961B4767C0007A8192 /* LXControlView.h */,
+				18C96D971B4767C0007A8192 /* LXControlView.m */,
 				18C96D871B476643007A8192 /* LXUnlockingView.h */,
 				18C96D881B476643007A8192 /* LXUnlockingView.m */,
 				18C96DA01B4779BA007A8192 /* LXViewController.h */,
@@ -263,11 +263,11 @@
 			files = (
 				18C96DA21B4779BA007A8192 /* LXViewController.m in Sources */,
 				18C96D891B476643007A8192 /* LXUnlockingView.m in Sources */,
-				18C96D981B4767C0007A8192 /* LXGraffitiView.m in Sources */,
+				18C96D981B4767C0007A8192 /* LXControlView.m in Sources */,
 				18C96D901B476701007A8192 /* MBProgressHUD+LX.m in Sources */,
 				18C96D921B476701007A8192 /* MBProgressHUD.m in Sources */,
 				18C96D641B4765AE007A8192 /* main.m in Sources */,
-				18C96D951B476763007A8192 /* LXDrawingView.m in Sources */,
+				18C96D951B476763007A8192 /* LXPaintingView.m in Sources */,
 				18C96D9C1B4778A2007A8192 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +473,7 @@
 				18C96D831B4765AE007A8192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18C96D841B4765AE007A8192 /* Build configuration list for PBXNativeTarget "手势解锁&涂鸦板Tests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +482,7 @@
 				18C96D861B4765AE007A8192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -30,7 +30,7 @@
 
     __typeof(self) __weak weakSelf = self;
     _unlockingView.successHandle = ^{
-        UIViewController *toVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:@"LXDrawingViewController"];
+        UIViewController *toVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:@"LXPaintingViewController"];
         [UIView transitionFromView:weakSelf.view
                             toView:toVC.view
                           duration:1
