@@ -14,7 +14,7 @@
 
 ###技术细节
 
-* 利用 `drawInContext:` 绘图.
+* 利用 `CALayer` 的 `drawInContext:` 绘图.
 * 计算最小重绘矩形范围配合 `setNeedsDisplayInRect:` 尽量减小重绘区域.
 * 开启 `drawsAsynchronously` 异步绘制.
 * 将之前的复杂路径直接作为位图渲染,并以此实现撤销/重做.
