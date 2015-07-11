@@ -1,23 +1,23 @@
 //
-//  LXViewController.m
+//  LXUnlockingViewController
 //  手势解锁&涂鸦板
 //
 //  Created by 从今以后 on 15/7/4.
 //  Copyright (c) 2015年 949478479. All rights reserved.
 //
 
-#import "LXViewController.h"
+#import "LXUnlockingViewController.h"
 #import "LXUnlockingView.h"
 
 
-@interface LXViewController ()
+@interface LXUnlockingViewController ()
 
-@property (weak, nonatomic) IBOutlet LXUnlockingView *unlockingView;
+@property (nonatomic) IBOutlet LXUnlockingView *unlockingView;
 
 @end
 
 
-@implementation LXViewController
+@implementation LXUnlockingViewController
 
 - (void)viewDidLoad
 {
@@ -30,7 +30,10 @@
 
     __typeof(self) __weak weakSelf = self;
     _unlockingView.successHandle = ^{
-        UIViewController *toVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:@"LXPaintingViewController"];
+    
+        UIViewController *toVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:
+                                  @"LXPaintViewController"];
+
         [UIView transitionFromView:weakSelf.view
                             toView:toVC.view
                           duration:1
@@ -39,11 +42,6 @@
             toVC.view.window.rootViewController = toVC;
         }];
     };
-}
-
-- (void)dealloc
-{
-    NSLog(@"%@ 手势解锁控制器销毁 -------", self);
 }
 
 @end

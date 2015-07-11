@@ -7,18 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18C96D641B4765AE007A8192 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D631B4765AE007A8192 /* main.m */; };
-		18C96D6D1B4765AE007A8192 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18C96D6B1B4765AE007A8192 /* Main.storyboard */; };
-		18C96D6F1B4765AE007A8192 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C96D6E1B4765AE007A8192 /* Images.xcassets */; };
+		18078E8C1B4DB5EA000FA0D6 /* LXSquareBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18078E8B1B4DB5EA000FA0D6 /* LXSquareBrush.m */; };
+		189418791B511692001BF956 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 189418761B511692001BF956 /* AppDelegate.m */; };
+		1894187B1B511692001BF956 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 189418781B511692001BF956 /* main.m */; };
+		1894187F1B51181B001BF956 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1894187E1B51181B001BF956 /* Images.xcassets */; };
+		189418871B511849001BF956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189418841B51183E001BF956 /* Main.storyboard */; };
+		18B12EE71B4C16730039EE5C /* LXArrowBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B12EE61B4C16730039EE5C /* LXArrowBrush.m */; };
+		18BE2F451B4A4DED00809A2E /* LXBaseBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F441B4A4DED00809A2E /* LXBaseBrush.m */; };
+		18BE2F4F1B4AA06900809A2E /* LXPencilBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F4E1B4AA06900809A2E /* LXPencilBrush.m */; };
+		18BE2F521B4AA0D300809A2E /* LXEraserBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F511B4AA0D300809A2E /* LXEraserBrush.m */; };
+		18BE2F551B4AA2F400809A2E /* LXDashLineBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F541B4AA2F400809A2E /* LXDashLineBrush.m */; };
+		18BE2F581B4AA33600809A2E /* LXRectangleBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F571B4AA33600809A2E /* LXRectangleBrush.m */; };
+		18BE2F5B1B4AA3E600809A2E /* LXEllipseBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F5A1B4AA3E600809A2E /* LXEllipseBrush.m */; };
+		18BE2F5E1B4AA40A00809A2E /* LXLineBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F5D1B4AA40A00809A2E /* LXLineBrush.m */; };
+		18BE2F611B4AA7A900809A2E /* LXCircleBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F601B4AA7A900809A2E /* LXCircleBrush.m */; };
+		18BE2F651B4AB73600809A2E /* LXColorAdjuster.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F641B4AB73600809A2E /* LXColorAdjuster.m */; };
+		18BE2F681B4ADA3700809A2E /* LXImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F671B4ADA3700809A2E /* LXImagePicker.m */; };
+		18C4CE651B496BF200C53609 /* LXPaintingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C4CE641B496BF200C53609 /* LXPaintingLayer.m */; };
 		18C96D7E1B4765AE007A8192 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D7D1B4765AE007A8192 /* ________Tests.m */; };
 		18C96D891B476643007A8192 /* LXUnlockingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D881B476643007A8192 /* LXUnlockingView.m */; };
-		18C96D901B476701007A8192 /* MBProgressHUD+LX.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D8C1B476701007A8192 /* MBProgressHUD+LX.m */; };
-		18C96D911B476701007A8192 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18C96D8D1B476701007A8192 /* MBProgressHUD.bundle */; };
-		18C96D921B476701007A8192 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D8F1B476701007A8192 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-Wno-unused-macros"; }; };
 		18C96D951B476763007A8192 /* LXPaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D941B476763007A8192 /* LXPaintingView.m */; };
-		18C96D981B4767C0007A8192 /* LXControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D971B4767C0007A8192 /* LXControlView.m */; };
-		18C96D9C1B4778A2007A8192 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D9B1B4778A2007A8192 /* AppDelegate.m */; };
-		18C96DA21B4779BA007A8192 /* LXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96DA11B4779BA007A8192 /* LXViewController.m */; };
+		18C96D981B4767C0007A8192 /* LXPaintControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D971B4767C0007A8192 /* LXPaintControlView.m */; };
+		18C96DA21B4779BA007A8192 /* LXUnlockingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96DA11B4779BA007A8192 /* LXUnlockingViewController.m */; };
+		18CA54901B4E770D00F4B4DF /* LXImageManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CA548F1B4E770D00F4B4DF /* LXImageManger.m */; };
+		18CEC7BF1B4D0F2200E39693 /* LXPaintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CEC7BE1B4D0F2200E39693 /* LXPaintViewController.m */; };
+		18CEC7C61B4D0FA400E39693 /* MBProgressHUD+LX.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CEC7C21B4D0FA400E39693 /* MBProgressHUD+LX.m */; };
+		18CEC7C71B4D0FA400E39693 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18CEC7C31B4D0FA400E39693 /* MBProgressHUD.bundle */; };
+		18CEC7C81B4D0FA400E39693 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CEC7C51B4D0FA400E39693 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-Wno-unused-macros"; }; };
+		18CEC7CB1B4D11C800E39693 /* LXPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CEC7CA1B4D11C800E39693 /* LXPaletteViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,29 +48,62 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18078E8A1B4DB5EA000FA0D6 /* LXSquareBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSquareBrush.h; sourceTree = "<group>"; };
+		18078E8B1B4DB5EA000FA0D6 /* LXSquareBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSquareBrush.m; sourceTree = "<group>"; };
+		189418751B511692001BF956 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		189418761B511692001BF956 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		189418771B511692001BF956 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		189418781B511692001BF956 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1894187E1B51181B001BF956 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		189418851B51183E001BF956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		18B12EE51B4C16730039EE5C /* LXArrowBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXArrowBrush.h; sourceTree = "<group>"; };
+		18B12EE61B4C16730039EE5C /* LXArrowBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXArrowBrush.m; sourceTree = "<group>"; };
+		18BE2F3F1B4A4AB100809A2E /* LXPaintBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintBrush.h; sourceTree = "<group>"; };
+		18BE2F431B4A4DED00809A2E /* LXBaseBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = LXBaseBrush.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		18BE2F441B4A4DED00809A2E /* LXBaseBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = LXBaseBrush.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		18BE2F4D1B4AA06900809A2E /* LXPencilBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPencilBrush.h; sourceTree = "<group>"; };
+		18BE2F4E1B4AA06900809A2E /* LXPencilBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPencilBrush.m; sourceTree = "<group>"; };
+		18BE2F501B4AA0D300809A2E /* LXEraserBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXEraserBrush.h; sourceTree = "<group>"; };
+		18BE2F511B4AA0D300809A2E /* LXEraserBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEraserBrush.m; sourceTree = "<group>"; };
+		18BE2F531B4AA2F400809A2E /* LXDashLineBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDashLineBrush.h; sourceTree = "<group>"; };
+		18BE2F541B4AA2F400809A2E /* LXDashLineBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDashLineBrush.m; sourceTree = "<group>"; };
+		18BE2F561B4AA33600809A2E /* LXRectangleBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXRectangleBrush.h; sourceTree = "<group>"; };
+		18BE2F571B4AA33600809A2E /* LXRectangleBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXRectangleBrush.m; sourceTree = "<group>"; };
+		18BE2F591B4AA3E600809A2E /* LXEllipseBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXEllipseBrush.h; sourceTree = "<group>"; };
+		18BE2F5A1B4AA3E600809A2E /* LXEllipseBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEllipseBrush.m; sourceTree = "<group>"; };
+		18BE2F5C1B4AA40A00809A2E /* LXLineBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXLineBrush.h; sourceTree = "<group>"; };
+		18BE2F5D1B4AA40A00809A2E /* LXLineBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXLineBrush.m; sourceTree = "<group>"; };
+		18BE2F5F1B4AA7A900809A2E /* LXCircleBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXCircleBrush.h; sourceTree = "<group>"; };
+		18BE2F601B4AA7A900809A2E /* LXCircleBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXCircleBrush.m; sourceTree = "<group>"; };
+		18BE2F631B4AB73600809A2E /* LXColorAdjuster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXColorAdjuster.h; sourceTree = "<group>"; };
+		18BE2F641B4AB73600809A2E /* LXColorAdjuster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXColorAdjuster.m; sourceTree = "<group>"; };
+		18BE2F661B4ADA3700809A2E /* LXImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXImagePicker.h; sourceTree = "<group>"; };
+		18BE2F671B4ADA3700809A2E /* LXImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXImagePicker.m; sourceTree = "<group>"; };
+		18C4CE631B496BF200C53609 /* LXPaintingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintingLayer.h; sourceTree = "<group>"; };
+		18C4CE641B496BF200C53609 /* LXPaintingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPaintingLayer.m; sourceTree = "<group>"; };
 		18C96D5E1B4765AE007A8192 /* 手势解锁&涂鸦板.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "手势解锁&涂鸦板.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18C96D621B4765AE007A8192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18C96D631B4765AE007A8192 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		18C96D6C1B4765AE007A8192 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		18C96D6E1B4765AE007A8192 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18C96D771B4765AE007A8192 /* 手势解锁&涂鸦板Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "手势解锁&涂鸦板Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C96D7C1B4765AE007A8192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18C96D7D1B4765AE007A8192 /* ________Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "________Tests.m"; sourceTree = "<group>"; };
 		18C96D871B476643007A8192 /* LXUnlockingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXUnlockingView.h; sourceTree = "<group>"; };
 		18C96D881B476643007A8192 /* LXUnlockingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXUnlockingView.m; sourceTree = "<group>"; };
-		18C96D8B1B476701007A8192 /* MBProgressHUD+LX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LX.h"; sourceTree = "<group>"; };
-		18C96D8C1B476701007A8192 /* MBProgressHUD+LX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+LX.m"; sourceTree = "<group>"; };
-		18C96D8D1B476701007A8192 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
-		18C96D8E1B476701007A8192 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		18C96D8F1B476701007A8192 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		18C96D931B476763007A8192 /* LXPaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintingView.h; sourceTree = "<group>"; };
 		18C96D941B476763007A8192 /* LXPaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPaintingView.m; sourceTree = "<group>"; };
-		18C96D961B4767C0007A8192 /* LXControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXControlView.h; sourceTree = "<group>"; };
-		18C96D971B4767C0007A8192 /* LXControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXControlView.m; sourceTree = "<group>"; };
-		18C96D9A1B4778A2007A8192 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		18C96D9B1B4778A2007A8192 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		18C96DA01B4779BA007A8192 /* LXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXViewController.h; sourceTree = "<group>"; };
-		18C96DA11B4779BA007A8192 /* LXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXViewController.m; sourceTree = "<group>"; };
+		18C96D961B4767C0007A8192 /* LXPaintControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintControlView.h; sourceTree = "<group>"; };
+		18C96D971B4767C0007A8192 /* LXPaintControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPaintControlView.m; sourceTree = "<group>"; };
+		18C96DA01B4779BA007A8192 /* LXUnlockingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXUnlockingViewController.h; sourceTree = "<group>"; };
+		18C96DA11B4779BA007A8192 /* LXUnlockingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXUnlockingViewController.m; sourceTree = "<group>"; };
+		18CA548E1B4E770D00F4B4DF /* LXImageManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXImageManger.h; sourceTree = "<group>"; };
+		18CA548F1B4E770D00F4B4DF /* LXImageManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXImageManger.m; sourceTree = "<group>"; };
+		18CEC7BD1B4D0F2200E39693 /* LXPaintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintViewController.h; sourceTree = "<group>"; };
+		18CEC7BE1B4D0F2200E39693 /* LXPaintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPaintViewController.m; sourceTree = "<group>"; };
+		18CEC7C11B4D0FA400E39693 /* MBProgressHUD+LX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LX.h"; sourceTree = "<group>"; };
+		18CEC7C21B4D0FA400E39693 /* MBProgressHUD+LX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+LX.m"; sourceTree = "<group>"; };
+		18CEC7C31B4D0FA400E39693 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		18CEC7C41B4D0FA400E39693 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		18CEC7C51B4D0FA400E39693 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		18CEC7C91B4D11C800E39693 /* LXPaletteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaletteViewController.h; sourceTree = "<group>"; };
+		18CEC7CA1B4D11C800E39693 /* LXPaletteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPaletteViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +124,97 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		189418741B511692001BF956 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				189418841B51183E001BF956 /* Main.storyboard */,
+				1894187E1B51181B001BF956 /* Images.xcassets */,
+				189418751B511692001BF956 /* AppDelegate.h */,
+				189418761B511692001BF956 /* AppDelegate.m */,
+				189418771B511692001BF956 /* Info.plist */,
+				189418781B511692001BF956 /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		18B12EDF1B4BC2850039EE5C /* RectBrush */ = {
+			isa = PBXGroup;
+			children = (
+				18BE2F561B4AA33600809A2E /* LXRectangleBrush.h */,
+				18BE2F571B4AA33600809A2E /* LXRectangleBrush.m */,
+				18BE2F591B4AA3E600809A2E /* LXEllipseBrush.h */,
+				18BE2F5A1B4AA3E600809A2E /* LXEllipseBrush.m */,
+				18BE2F5F1B4AA7A900809A2E /* LXCircleBrush.h */,
+				18BE2F601B4AA7A900809A2E /* LXCircleBrush.m */,
+				18078E8A1B4DB5EA000FA0D6 /* LXSquareBrush.h */,
+				18078E8B1B4DB5EA000FA0D6 /* LXSquareBrush.m */,
+			);
+			name = RectBrush;
+			sourceTree = "<group>";
+		};
+		18B12EE01B4BC29A0039EE5C /* LineBrush */ = {
+			isa = PBXGroup;
+			children = (
+				18BE2F5C1B4AA40A00809A2E /* LXLineBrush.h */,
+				18BE2F5D1B4AA40A00809A2E /* LXLineBrush.m */,
+				18BE2F531B4AA2F400809A2E /* LXDashLineBrush.h */,
+				18BE2F541B4AA2F400809A2E /* LXDashLineBrush.m */,
+				18B12EE51B4C16730039EE5C /* LXArrowBrush.h */,
+				18B12EE61B4C16730039EE5C /* LXArrowBrush.m */,
+			);
+			name = LineBrush;
+			sourceTree = "<group>";
+		};
+		18B12EE11B4BC2C30039EE5C /* curve */ = {
+			isa = PBXGroup;
+			children = (
+				18BE2F4D1B4AA06900809A2E /* LXPencilBrush.h */,
+				18BE2F4E1B4AA06900809A2E /* LXPencilBrush.m */,
+				18BE2F501B4AA0D300809A2E /* LXEraserBrush.h */,
+				18BE2F511B4AA0D300809A2E /* LXEraserBrush.m */,
+			);
+			name = curve;
+			sourceTree = "<group>";
+		};
+		18B12EEB1B4C62340039EE5C /* Behavior */ = {
+			isa = PBXGroup;
+			children = (
+				18BE2F631B4AB73600809A2E /* LXColorAdjuster.h */,
+				18BE2F641B4AB73600809A2E /* LXColorAdjuster.m */,
+				18BE2F661B4ADA3700809A2E /* LXImagePicker.h */,
+				18BE2F671B4ADA3700809A2E /* LXImagePicker.m */,
+				18CA548E1B4E770D00F4B4DF /* LXImageManger.h */,
+				18CA548F1B4E770D00F4B4DF /* LXImageManger.m */,
+			);
+			path = Behavior;
+			sourceTree = "<group>";
+		};
+		18BE2F4C1B4AA04300809A2E /* Brush */ = {
+			isa = PBXGroup;
+			children = (
+				18BE2F3F1B4A4AB100809A2E /* LXPaintBrush.h */,
+				18BE2F431B4A4DED00809A2E /* LXBaseBrush.h */,
+				18BE2F441B4A4DED00809A2E /* LXBaseBrush.m */,
+				18B12EE11B4BC2C30039EE5C /* curve */,
+				18B12EE01B4BC29A0039EE5C /* LineBrush */,
+				18B12EDF1B4BC2850039EE5C /* RectBrush */,
+			);
+			path = Brush;
+			sourceTree = "<group>";
+		};
+		18BE2F621B4AB6E200809A2E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				18C96DA01B4779BA007A8192 /* LXUnlockingViewController.h */,
+				18C96DA11B4779BA007A8192 /* LXUnlockingViewController.m */,
+				18CEC7BD1B4D0F2200E39693 /* LXPaintViewController.h */,
+				18CEC7BE1B4D0F2200E39693 /* LXPaintViewController.m */,
+				18CEC7C91B4D11C800E39693 /* LXPaletteViewController.h */,
+				18CEC7CA1B4D11C800E39693 /* LXPaletteViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		18C96D551B4765AE007A8192 = {
 			isa = PBXGroup;
 			children = (
@@ -96,24 +236,14 @@
 		18C96D601B4765AE007A8192 /* 手势解锁&涂鸦板 */ = {
 			isa = PBXGroup;
 			children = (
-				18C96D8A1B476701007A8192 /* MBProgressHUD */,
+				18CEC7C01B4D0FA400E39693 /* MBProgressHUD */,
+				18B12EEB1B4C62340039EE5C /* Behavior */,
+				18BE2F621B4AB6E200809A2E /* Controller */,
+				18BE2F4C1B4AA04300809A2E /* Brush */,
 				18C96D991B4767F7007A8192 /* View */,
-				18C96D6B1B4765AE007A8192 /* Main.storyboard */,
-				18C96D9A1B4778A2007A8192 /* AppDelegate.h */,
-				18C96D9B1B4778A2007A8192 /* AppDelegate.m */,
-				18C96D611B4765AE007A8192 /* Supporting Files */,
+				189418741B511692001BF956 /* Other */,
 			);
 			path = "手势解锁&涂鸦板";
-			sourceTree = "<group>";
-		};
-		18C96D611B4765AE007A8192 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				18C96D6E1B4765AE007A8192 /* Images.xcassets */,
-				18C96D621B4765AE007A8192 /* Info.plist */,
-				18C96D631B4765AE007A8192 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		18C96D7A1B4765AE007A8192 /* 手势解锁&涂鸦板Tests */ = {
@@ -133,31 +263,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		18C96D8A1B476701007A8192 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				18C96D8B1B476701007A8192 /* MBProgressHUD+LX.h */,
-				18C96D8C1B476701007A8192 /* MBProgressHUD+LX.m */,
-				18C96D8D1B476701007A8192 /* MBProgressHUD.bundle */,
-				18C96D8E1B476701007A8192 /* MBProgressHUD.h */,
-				18C96D8F1B476701007A8192 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		18C96D991B4767F7007A8192 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18C4CE631B496BF200C53609 /* LXPaintingLayer.h */,
+				18C4CE641B496BF200C53609 /* LXPaintingLayer.m */,
 				18C96D931B476763007A8192 /* LXPaintingView.h */,
 				18C96D941B476763007A8192 /* LXPaintingView.m */,
-				18C96D961B4767C0007A8192 /* LXControlView.h */,
-				18C96D971B4767C0007A8192 /* LXControlView.m */,
+				18C96D961B4767C0007A8192 /* LXPaintControlView.h */,
+				18C96D971B4767C0007A8192 /* LXPaintControlView.m */,
 				18C96D871B476643007A8192 /* LXUnlockingView.h */,
 				18C96D881B476643007A8192 /* LXUnlockingView.m */,
-				18C96DA01B4779BA007A8192 /* LXViewController.h */,
-				18C96DA11B4779BA007A8192 /* LXViewController.m */,
 			);
-			name = View;
+			path = View;
+			sourceTree = "<group>";
+		};
+		18CEC7C01B4D0FA400E39693 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				18CEC7C11B4D0FA400E39693 /* MBProgressHUD+LX.h */,
+				18CEC7C21B4D0FA400E39693 /* MBProgressHUD+LX.m */,
+				18CEC7C31B4D0FA400E39693 /* MBProgressHUD.bundle */,
+				18CEC7C41B4D0FA400E39693 /* MBProgressHUD.h */,
+				18CEC7C51B4D0FA400E39693 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,9 +371,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18C96D6D1B4765AE007A8192 /* Main.storyboard in Resources */,
-				18C96D911B476701007A8192 /* MBProgressHUD.bundle in Resources */,
-				18C96D6F1B4765AE007A8192 /* Images.xcassets in Resources */,
+				189418871B511849001BF956 /* Main.storyboard in Resources */,
+				1894187F1B51181B001BF956 /* Images.xcassets in Resources */,
+				18CEC7C71B4D0FA400E39693 /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,14 +391,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18C96DA21B4779BA007A8192 /* LXViewController.m in Sources */,
+				1894187B1B511692001BF956 /* main.m in Sources */,
+				18B12EE71B4C16730039EE5C /* LXArrowBrush.m in Sources */,
+				18CEC7C61B4D0FA400E39693 /* MBProgressHUD+LX.m in Sources */,
+				18BE2F4F1B4AA06900809A2E /* LXPencilBrush.m in Sources */,
+				18BE2F651B4AB73600809A2E /* LXColorAdjuster.m in Sources */,
+				18BE2F551B4AA2F400809A2E /* LXDashLineBrush.m in Sources */,
+				18BE2F681B4ADA3700809A2E /* LXImagePicker.m in Sources */,
+				18C96DA21B4779BA007A8192 /* LXUnlockingViewController.m in Sources */,
 				18C96D891B476643007A8192 /* LXUnlockingView.m in Sources */,
-				18C96D981B4767C0007A8192 /* LXControlView.m in Sources */,
-				18C96D901B476701007A8192 /* MBProgressHUD+LX.m in Sources */,
-				18C96D921B476701007A8192 /* MBProgressHUD.m in Sources */,
-				18C96D641B4765AE007A8192 /* main.m in Sources */,
+				18BE2F581B4AA33600809A2E /* LXRectangleBrush.m in Sources */,
+				18C96D981B4767C0007A8192 /* LXPaintControlView.m in Sources */,
+				18BE2F521B4AA0D300809A2E /* LXEraserBrush.m in Sources */,
+				18BE2F5E1B4AA40A00809A2E /* LXLineBrush.m in Sources */,
+				18CA54901B4E770D00F4B4DF /* LXImageManger.m in Sources */,
+				18CEC7CB1B4D11C800E39693 /* LXPaletteViewController.m in Sources */,
+				18CEC7C81B4D0FA400E39693 /* MBProgressHUD.m in Sources */,
+				18CEC7BF1B4D0F2200E39693 /* LXPaintViewController.m in Sources */,
 				18C96D951B476763007A8192 /* LXPaintingView.m in Sources */,
-				18C96D9C1B4778A2007A8192 /* AppDelegate.m in Sources */,
+				18C4CE651B496BF200C53609 /* LXPaintingLayer.m in Sources */,
+				189418791B511692001BF956 /* AppDelegate.m in Sources */,
+				18BE2F451B4A4DED00809A2E /* LXBaseBrush.m in Sources */,
+				18BE2F611B4AA7A900809A2E /* LXCircleBrush.m in Sources */,
+				18BE2F5B1B4AA3E600809A2E /* LXEllipseBrush.m in Sources */,
+				18078E8C1B4DB5EA000FA0D6 /* LXSquareBrush.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,10 +437,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		18C96D6B1B4765AE007A8192 /* Main.storyboard */ = {
+		189418841B51183E001BF956 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				18C96D6C1B4765AE007A8192 /* Base */,
+				189418851B51183E001BF956 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -388,7 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "手势解锁&涂鸦板/Info.plist";
+				INFOPLIST_FILE = "手势解锁&涂鸦板/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
@@ -406,7 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "手势解锁&涂鸦板/Info.plist";
+				INFOPLIST_FILE = "手势解锁&涂鸦板/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (

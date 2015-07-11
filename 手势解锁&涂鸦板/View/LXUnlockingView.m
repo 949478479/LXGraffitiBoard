@@ -14,10 +14,10 @@
 static const NSInteger kLXButtonCount = 3;
 
 /** 按钮尺寸. */
-static const CGFloat kLXButtonSize = 74;
+static const CGFloat   kLXButtonSize  = 74;
 
 /** 线条宽度 */
-static const CGFloat kLXLineWidth = 10;
+static const CGFloat   kLXLineWidth   = 10;
 
 /** 线条颜色. */
 #define LX_LINE_COLOR [UIColor colorWithRed:144/255.0 green:217/255.0 blue:245/255.0 alpha:1]
@@ -36,9 +36,6 @@ static const CGFloat kLXLineWidth = 10;
 
 /** 选中的按钮们. */
 @property (nonatomic) NSMutableArray *buttons;
-
-/** 按钮的约束. */
-@property (nonatomic) NSMutableArray *constraints;
 
 @end
 
@@ -70,26 +67,26 @@ static const CGFloat kLXLineWidth = 10;
     return self;
 }
 
-/** 配置 UI. */
+/** 配置九个按钮. */
 - (void)p_commonInit
 {
     _lineColor = LX_LINE_COLOR;
-    _path = CGPathCreateMutable();
-    _buttons = [NSMutableArray new];
+    _path      = CGPathCreateMutable();
+    _buttons   = [NSMutableArray new];
 
     for (NSInteger i = 0; i < 9; ++i) {
 
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
 
-        btn.tag = i;
-        btn.userInteractionEnabled = NO;
+        button.tag = i;
+        button.userInteractionEnabled = NO;
 
-        [btn setBackgroundImage:[UIImage imageNamed:@"gesture_node_normal"]
-                       forState:UIControlStateNormal];
-        [btn setBackgroundImage:[UIImage imageNamed:@"gesture_node_highlighted"]
-                       forState:UIControlStateSelected];
+        [button setBackgroundImage:[UIImage imageNamed:@"gesture_node_normal"]
+                          forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"gesture_node_highlighted"]
+                          forState:UIControlStateSelected];
 
-        [self addSubview:btn];
+        [self addSubview:button];
     }
 
     self.layer.drawsAsynchronously = YES;
@@ -100,8 +97,12 @@ static const CGFloat kLXLineWidth = 10;
 {
     [super layoutSubviews];
 
-    CGFloat marginH = (CGRectGetWidth(self.bounds) - kLXButtonSize * kLXButtonCount) / (kLXButtonCount + 1);
-    CGFloat marginV = (CGRectGetHeight(self.bounds) - kLXButtonSize * kLXButtonCount) / (kLXButtonCount + 1);
+    CGFloat marginH = ({
+        (CGRectGetWidth(self.bounds)  - kLXButtonSize * kLXButtonCount) / (kLXButtonCount + 1);
+    });
+    CGFloat marginV = ({
+        (CGRectGetHeight(self.bounds) - kLXButtonSize * kLXButtonCount) / (kLXButtonCount + 1);
+    });
 
     [self.subviews enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
         NSUInteger row = idx / 3, col = idx % 3;
@@ -132,7 +133,7 @@ static const CGFloat kLXLineWidth = 10;
 
 - (void)drawRect:(CGRect)rect
 {
-    if (CGPathIsEmpty(_path)) return;
+    if (!_path || CGPathIsEmpty(_path)) return;
 
     CGContextRef context = UIGraphicsGetCurrentContext();
 
@@ -179,7 +180,10 @@ static const CGFloat kLXLineWidth = 10;
 /** 根据触摸位置渲染连线. */
 - (void)p_handleForTouchesBeganAndMoved:(NSSet *)touches
 {
-    CGPoint point1 = _currentPoint, point2 = CGPointZero, point3 = CGPointZero;
+    CGPoint point1 = _currentPoint;
+    CGPoint point2 = CGPointZero;
+    CGPoint point3 = CGPointZero;
+
     _currentPoint = [touches.anyObject locationInView:self];
 
     BOOL isNewButton = NO; // 是否连接到新按钮(第一个按钮不按新按钮算).
@@ -190,7 +194,12 @@ static const CGFloat kLXLineWidth = 10;
         button.selected = YES;
         [_buttons addObject:button];
 
-        CGFloat x = CGRectGetMidX(button.frame), y = CGRectGetMidY(button.frame);
+        CGFloat x = CGRectGetMidX(button.frame);
+        CGFloat y = CGRectGetMidY(button.frame);
+
+        if (!_path) {
+            _path = CGPathCreateMutable();
+        }
 
         if (CGPathIsEmpty(_path)) {
             CGPathMoveToPoint(_path, NULL, x, y);
@@ -213,6 +222,7 @@ static const CGFloat kLXLineWidth = 10;
         point2 = _currentPoint;
         point3 = CGPathGetCurrentPoint(_path);
     }
+
     CGRect dirtyRect = [self p_dirtyRectForPoint1:point1
                                            point2:point2
                                            point3:point3
@@ -235,15 +245,20 @@ static const CGFloat kLXLineWidth = 10;
 
     // 根据正误重新绘制对应颜色的线条并显示 HUD.
     void (^handleBlock)();
+
     if (isCorrect) {
         handleBlock = _successHandle;
-        _lineColor = [UIColor greenColor];
+        _lineColor  = [UIColor greenColor];
+
         [MBProgressHUD lx_showHudForSuccess:@"终于对了...O(∩_∩)O~"];
-    } else {
+    }
+    else {
         handleBlock = _failureHandle;
-        _lineColor = [UIColor redColor];
+        _lineColor  = [UIColor redColor];
+
         [MBProgressHUD lx_showHudForError:@"密码不对...⊙﹏⊙汗"];
     }
+
     _currentPoint = CGPathGetCurrentPoint(_path); // 为了不将松手时的触摸点绘制进去,导致一根线连到外面.
     [self setNeedsDisplay];
 
@@ -256,7 +271,7 @@ static const CGFloat kLXLineWidth = 10;
         _lineColor = LX_LINE_COLOR;
 
         CGPathRelease(_path);
-        _path = CGPathCreateMutable();
+        _path = NULL;
 
         [self setNeedsDisplay];
 

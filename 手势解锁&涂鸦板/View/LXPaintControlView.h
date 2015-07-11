@@ -1,5 +1,5 @@
 //
-//  LXViewController.h
+//  LXControlView.h
 //  手势解锁&涂鸦板
 //
 //  Created by 从今以后 on 15/7/4.
@@ -8,6 +8,10 @@
 
 @import UIKit;
 
-@interface LXViewController : UIViewController
+
+@interface LXPaintControlView : UIView
+
+/** 选中的颜色. */
+@property (nonatomic) UIColor *selectedColor;
 
 @end
