@@ -25,6 +25,29 @@ typedef NS_ENUM(NSUInteger, LXActionType){
 };
 
 
+/** 画笔工具类型. */
+typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
+    /** 画笔. */
+    LXPaintBrushTypePencil,
+    /** 橡皮. */
+    LXPaintBrushTypeEraser,
+    /** 直线. */
+    LXPaintBrushTypeLine,
+    /** 虚线. */
+    LXPaintBrushTypeDashLine,
+    /** 矩形. */
+    LXPaintBrushTypeRectangle,
+    /** 方形. */
+    LXPaintBrushTypeSquare,
+    /** 椭圆. */
+    LXPaintBrushTypeEllipse,
+    /** 正圆. */
+    LXPaintBrushTypeCircle,
+    /** 箭头. */
+    LXPaintBrushTypeArrow,
+};
+
+
 @interface LXPaintControlView () <UIBarPositioningDelegate>
 
 /** 导航栏. */
@@ -105,9 +128,9 @@ typedef NS_ENUM(NSUInteger, LXActionType){
 {
     // 创建并设置画刷.
     id<LXPaintBrush> paintBrush = [LXBaseBrush brushWithType:LXBrushTypePencil];
-    paintBrush.lineWidth           = _lineWidthSlider.value;
-    paintBrush.lineColor           = _selectedColorButton.backgroundColor;
-    _paintingView.paintBrush       = paintBrush;
+    paintBrush.lineWidth        = _lineWidthSlider.value;
+    paintBrush.lineColor        = _selectedColorButton.backgroundColor;
+    _paintingView.paintBrush    = paintBrush;
 
     // 注册 KVO 方便更新按钮状态.
     [_paintingView addObserver:self
@@ -129,32 +152,37 @@ typedef NS_ENUM(NSUInteger, LXActionType){
 
 - (void)p_setupNavigationItem
 {
-    UIBarButtonItem *spacerItem = [[UIBarButtonItem alloc] initWithTitle:@""
-                                                                   style:UIBarButtonItemStylePlain
-                                                                  target:nil
-                                                                  action:nil];
-    UIBarButtonItem *deleteImageItem  = [[UIBarButtonItem alloc] initWithTitle:@"❌删除照片"
-                                                                         style:UIBarButtonItemStylePlain
-                                                                        target:self
-                                                                        action:@selector(deleteImageAction)];
-    UIBarButtonItem *clearItem  = [[UIBarButtonItem alloc] initWithTitle:@"♻️清屏"
-                                                                   style:UIBarButtonItemStylePlain
-                                                                  target:self
-                                                                  action:@selector(clearAction)];
-    UIBarButtonItem *saveItem   = [[UIBarButtonItem alloc] initWithTitle:@"💾保存"
-                                                                   style:UIBarButtonItemStylePlain
-                                                                  target:self
-                                                                  action:@selector(saveAction)];
-    _navItem.leftBarButtonItems = @[_navItem.leftBarButtonItem, spacerItem,
-                                    deleteImageItem, spacerItem,
-                                    clearItem, spacerItem,
-                                    saveItem];
+    UIBarButtonItem *spacerItem      = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:nil
+                                                                       action:nil];
+
+    UIBarButtonItem *deleteImageItem = [[UIBarButtonItem alloc] initWithTitle:@"❌删除照片"
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(deleteImageAction)];
+
+    UIBarButtonItem *clearItem       = [[UIBarButtonItem alloc] initWithTitle:@"♻️清屏"
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(clearAction)];
+
+    UIBarButtonItem *saveItem        = [[UIBarButtonItem alloc] initWithTitle:@"💾保存"
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(saveAction)];
+
+    _navItem.leftBarButtonItems = @[ _navItem.leftBarButtonItem, spacerItem,
+                                     deleteImageItem, spacerItem,
+                                     clearItem, spacerItem,
+                                     saveItem ];
 
     UIBarButtonItem *resetColorItem = [[UIBarButtonItem alloc] initWithTitle:@"🔃重置颜色"
                                                                        style:UIBarButtonItemStylePlain
                                                                       target:self
                                                                       action:@selector(resetColorAction)];
-    _navItem.rightBarButtonItems = @[_navItem.rightBarButtonItem, spacerItem, resetColorItem];
+                                                                      
+    _navItem.rightBarButtonItems = @[ _navItem.rightBarButtonItem, spacerItem, resetColorItem ];
 }
 
 #pragma mark 预览画笔
@@ -236,39 +264,39 @@ typedef NS_ENUM(NSUInteger, LXActionType){
     id<LXPaintBrush> paintBrush;
 
     switch (sender.selectedSegmentIndex) {
-        case LXBrushTypePencil:
+        case LXPaintBrushTypePencil:
             paintBrush = [LXBaseBrush brushWithType:LXBrushTypePencil];
             break;
             
-        case LXBrushTypeEraser:
+        case LXPaintBrushTypeEraser:
             paintBrush = [LXBaseBrush brushWithType:LXBrushTypeEraser];
             break;
 
-        case LXBrushTypeLine:
+        case LXPaintBrushTypeLine:
             paintBrush = [LXBaseBrush brushWithType:LXBrushTypeLine];
             break;
 
-        case LXBrushTypeDashLine:
+        case LXPaintBrushTypeDashLine:
             paintBrush = [LXBaseBrush brushWithType:LXBrushTypeDashLine];
             break;
 
-        case LXBrushTypeRectangle:
+        case LXPaintBrushTypeRectangle:
             paintBrush = [LXBaseBrush brushWithType:LXBrushTypeRectangle];
             break;
 
-        case LXBrushTypeSquare:
+        case LXPaintBrushTypeSquare:
             paintBrush = [LXBaseBrush brushWithType:LXBrushTypeSquare];
             break;
 
-        case LXBrushTypeEllipse:
+        case LXPaintBrushTypeEllipse:
             paintBrush = [LXBaseBrush brushWithType:LXBrushTypeEllipse];
             break;
 
-        case LXBrushTypeCircle:
+        case LXPaintBrushTypeCircle:
             paintBrush = [LXBaseBrush brushWithType:LXBrushTypeCircle];
             break;
 
-        case LXBrushTypeArrow:
+        case LXPaintBrushTypeArrow:
             paintBrush = [LXBaseBrush brushWithType:LXBrushTypeArrow];
             break;
     }
