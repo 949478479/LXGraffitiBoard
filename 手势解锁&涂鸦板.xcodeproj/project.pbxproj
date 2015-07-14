@@ -10,7 +10,6 @@
 		18078E8C1B4DB5EA000FA0D6 /* LXSquareBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18078E8B1B4DB5EA000FA0D6 /* LXSquareBrush.m */; };
 		189418791B511692001BF956 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 189418761B511692001BF956 /* AppDelegate.m */; };
 		1894187B1B511692001BF956 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 189418781B511692001BF956 /* main.m */; };
-		1894187F1B51181B001BF956 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1894187E1B51181B001BF956 /* Images.xcassets */; };
 		189418871B511849001BF956 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189418841B51183E001BF956 /* Main.storyboard */; };
 		18B12EE71B4C16730039EE5C /* LXArrowBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B12EE61B4C16730039EE5C /* LXArrowBrush.m */; };
 		18BE2F451B4A4DED00809A2E /* LXBaseBrush.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F441B4A4DED00809A2E /* LXBaseBrush.m */; };
@@ -24,6 +23,24 @@
 		18BE2F651B4AB73600809A2E /* LXColorAdjuster.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F641B4AB73600809A2E /* LXColorAdjuster.m */; };
 		18BE2F681B4ADA3700809A2E /* LXImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 18BE2F671B4ADA3700809A2E /* LXImagePicker.m */; };
 		18C4CE651B496BF200C53609 /* LXPaintingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C4CE641B496BF200C53609 /* LXPaintingLayer.m */; };
+		18C608E71B54D9F80045FD64 /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608C31B54D9F70045FD64 /* ANImageBitmapRep.m */; };
+		18C608E81B54D9F80045FD64 /* BitmapContextRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608C51B54D9F70045FD64 /* BitmapContextRep.m */; };
+		18C608E91B54D9F80045FD64 /* OSCommonImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608C81B54D9F70045FD64 /* OSCommonImage.m */; };
+		18C608EA1B54D9F80045FD64 /* UIImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608CA1B54D9F70045FD64 /* UIImage+ANImageBitmapRep.m */; };
+		18C608EB1B54D9F80045FD64 /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608CD1B54D9F70045FD64 /* CGContextCreator.m */; };
+		18C608EC1B54D9F80045FD64 /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608CF1B54D9F70045FD64 /* CGImageContainer.m */; };
+		18C608ED1B54D9F80045FD64 /* BitmapContextManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608D21B54D9F70045FD64 /* BitmapContextManipulator.m */; };
+		18C608EE1B54D9F80045FD64 /* BitmapCropManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608D41B54D9F70045FD64 /* BitmapCropManipulator.m */; };
+		18C608EF1B54D9F80045FD64 /* BitmapDrawManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608D61B54D9F70045FD64 /* BitmapDrawManipulator.m */; };
+		18C608F01B54D9F80045FD64 /* BitmapRotationManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608D81B54D9F70045FD64 /* BitmapRotationManipulator.m */; };
+		18C608F11B54D9F80045FD64 /* BitmapScaleManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608DA1B54D9F70045FD64 /* BitmapScaleManipulator.m */; };
+		18C608F21B54D9F80045FD64 /* BGRSLoupeLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608DC1B54D9F70045FD64 /* BGRSLoupeLayer.m */; };
+		18C608F31B54D9F80045FD64 /* RSColorFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608DE1B54D9F70045FD64 /* RSColorFunctions.m */; };
+		18C608F41B54D9F80045FD64 /* RSColorPickerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608E01B54D9F70045FD64 /* RSColorPickerState.m */; };
+		18C608F51B54D9F80045FD64 /* RSColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608E21B54D9F70045FD64 /* RSColorPickerView.m */; };
+		18C608F61B54D9F80045FD64 /* RSGenerateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608E41B54D9F80045FD64 /* RSGenerateOperation.m */; };
+		18C608F71B54D9F80045FD64 /* RSSelectionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608E61B54D9F80045FD64 /* RSSelectionLayer.m */; };
+		18C608F91B54DC310045FD64 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C608F81B54DC310045FD64 /* Images.xcassets */; };
 		18C96D7E1B4765AE007A8192 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D7D1B4765AE007A8192 /* ________Tests.m */; };
 		18C96D891B476643007A8192 /* LXUnlockingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D881B476643007A8192 /* LXUnlockingView.m */; };
 		18C96D951B476763007A8192 /* LXPaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D941B476763007A8192 /* LXPaintingView.m */; };
@@ -54,7 +71,6 @@
 		189418761B511692001BF956 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		189418771B511692001BF956 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		189418781B511692001BF956 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		1894187E1B51181B001BF956 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		189418851B51183E001BF956 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		18B12EE51B4C16730039EE5C /* LXArrowBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXArrowBrush.h; sourceTree = "<group>"; };
 		18B12EE61B4C16730039EE5C /* LXArrowBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXArrowBrush.m; sourceTree = "<group>"; };
@@ -81,6 +97,41 @@
 		18BE2F671B4ADA3700809A2E /* LXImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXImagePicker.m; sourceTree = "<group>"; };
 		18C4CE631B496BF200C53609 /* LXPaintingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintingLayer.h; sourceTree = "<group>"; };
 		18C4CE641B496BF200C53609 /* LXPaintingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPaintingLayer.m; sourceTree = "<group>"; };
+		18C608C21B54D9F70045FD64 /* ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANImageBitmapRep.h; sourceTree = "<group>"; };
+		18C608C31B54D9F70045FD64 /* ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANImageBitmapRep.m; sourceTree = "<group>"; };
+		18C608C41B54D9F70045FD64 /* BitmapContextRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapContextRep.h; sourceTree = "<group>"; };
+		18C608C51B54D9F70045FD64 /* BitmapContextRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapContextRep.m; sourceTree = "<group>"; };
+		18C608C71B54D9F70045FD64 /* OSCommonImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCommonImage.h; sourceTree = "<group>"; };
+		18C608C81B54D9F70045FD64 /* OSCommonImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCommonImage.m; sourceTree = "<group>"; };
+		18C608C91B54D9F70045FD64 /* UIImage+ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ANImageBitmapRep.h"; sourceTree = "<group>"; };
+		18C608CA1B54D9F70045FD64 /* UIImage+ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ANImageBitmapRep.m"; sourceTree = "<group>"; };
+		18C608CC1B54D9F70045FD64 /* CGContextCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGContextCreator.h; sourceTree = "<group>"; };
+		18C608CD1B54D9F70045FD64 /* CGContextCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGContextCreator.m; sourceTree = "<group>"; };
+		18C608CE1B54D9F70045FD64 /* CGImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGImageContainer.h; sourceTree = "<group>"; };
+		18C608CF1B54D9F70045FD64 /* CGImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGImageContainer.m; sourceTree = "<group>"; };
+		18C608D11B54D9F70045FD64 /* BitmapContextManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapContextManipulator.h; sourceTree = "<group>"; };
+		18C608D21B54D9F70045FD64 /* BitmapContextManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapContextManipulator.m; sourceTree = "<group>"; };
+		18C608D31B54D9F70045FD64 /* BitmapCropManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapCropManipulator.h; sourceTree = "<group>"; };
+		18C608D41B54D9F70045FD64 /* BitmapCropManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapCropManipulator.m; sourceTree = "<group>"; };
+		18C608D51B54D9F70045FD64 /* BitmapDrawManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapDrawManipulator.h; sourceTree = "<group>"; };
+		18C608D61B54D9F70045FD64 /* BitmapDrawManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapDrawManipulator.m; sourceTree = "<group>"; };
+		18C608D71B54D9F70045FD64 /* BitmapRotationManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapRotationManipulator.h; sourceTree = "<group>"; };
+		18C608D81B54D9F70045FD64 /* BitmapRotationManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapRotationManipulator.m; sourceTree = "<group>"; };
+		18C608D91B54D9F70045FD64 /* BitmapScaleManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapScaleManipulator.h; sourceTree = "<group>"; };
+		18C608DA1B54D9F70045FD64 /* BitmapScaleManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapScaleManipulator.m; sourceTree = "<group>"; };
+		18C608DB1B54D9F70045FD64 /* BGRSLoupeLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BGRSLoupeLayer.h; sourceTree = "<group>"; };
+		18C608DC1B54D9F70045FD64 /* BGRSLoupeLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BGRSLoupeLayer.m; sourceTree = "<group>"; };
+		18C608DD1B54D9F70045FD64 /* RSColorFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSColorFunctions.h; sourceTree = "<group>"; };
+		18C608DE1B54D9F70045FD64 /* RSColorFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSColorFunctions.m; sourceTree = "<group>"; };
+		18C608DF1B54D9F70045FD64 /* RSColorPickerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSColorPickerState.h; sourceTree = "<group>"; };
+		18C608E01B54D9F70045FD64 /* RSColorPickerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSColorPickerState.m; sourceTree = "<group>"; };
+		18C608E11B54D9F70045FD64 /* RSColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSColorPickerView.h; sourceTree = "<group>"; };
+		18C608E21B54D9F70045FD64 /* RSColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSColorPickerView.m; sourceTree = "<group>"; };
+		18C608E31B54D9F70045FD64 /* RSGenerateOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSGenerateOperation.h; sourceTree = "<group>"; };
+		18C608E41B54D9F80045FD64 /* RSGenerateOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSGenerateOperation.m; sourceTree = "<group>"; };
+		18C608E51B54D9F80045FD64 /* RSSelectionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSSelectionLayer.h; sourceTree = "<group>"; };
+		18C608E61B54D9F80045FD64 /* RSSelectionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSelectionLayer.m; sourceTree = "<group>"; };
+		18C608F81B54DC310045FD64 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18C96D5E1B4765AE007A8192 /* 手势解锁&涂鸦板.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "手势解锁&涂鸦板.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C96D771B4765AE007A8192 /* 手势解锁&涂鸦板Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "手势解锁&涂鸦板Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C96D7C1B4765AE007A8192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -127,8 +178,8 @@
 		189418741B511692001BF956 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				18C608F81B54DC310045FD64 /* Images.xcassets */,
 				189418841B51183E001BF956 /* Main.storyboard */,
-				1894187E1B51181B001BF956 /* Images.xcassets */,
 				189418751B511692001BF956 /* AppDelegate.h */,
 				189418761B511692001BF956 /* AppDelegate.m */,
 				189418771B511692001BF956 /* Info.plist */,
@@ -215,6 +266,79 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		18C608C01B54D9F70045FD64 /* RSColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				18C608C11B54D9F70045FD64 /* ANImageBitmapRep */,
+				18C608DB1B54D9F70045FD64 /* BGRSLoupeLayer.h */,
+				18C608DC1B54D9F70045FD64 /* BGRSLoupeLayer.m */,
+				18C608DD1B54D9F70045FD64 /* RSColorFunctions.h */,
+				18C608DE1B54D9F70045FD64 /* RSColorFunctions.m */,
+				18C608DF1B54D9F70045FD64 /* RSColorPickerState.h */,
+				18C608E01B54D9F70045FD64 /* RSColorPickerState.m */,
+				18C608E11B54D9F70045FD64 /* RSColorPickerView.h */,
+				18C608E21B54D9F70045FD64 /* RSColorPickerView.m */,
+				18C608E31B54D9F70045FD64 /* RSGenerateOperation.h */,
+				18C608E41B54D9F80045FD64 /* RSGenerateOperation.m */,
+				18C608E51B54D9F80045FD64 /* RSSelectionLayer.h */,
+				18C608E61B54D9F80045FD64 /* RSSelectionLayer.m */,
+			);
+			path = RSColorPicker;
+			sourceTree = "<group>";
+		};
+		18C608C11B54D9F70045FD64 /* ANImageBitmapRep */ = {
+			isa = PBXGroup;
+			children = (
+				18C608C21B54D9F70045FD64 /* ANImageBitmapRep.h */,
+				18C608C31B54D9F70045FD64 /* ANImageBitmapRep.m */,
+				18C608C41B54D9F70045FD64 /* BitmapContextRep.h */,
+				18C608C51B54D9F70045FD64 /* BitmapContextRep.m */,
+				18C608C61B54D9F70045FD64 /* Compatibility */,
+				18C608CB1B54D9F70045FD64 /* CoreGraphics */,
+				18C608D01B54D9F70045FD64 /* Manipulators */,
+			);
+			path = ANImageBitmapRep;
+			sourceTree = "<group>";
+		};
+		18C608C61B54D9F70045FD64 /* Compatibility */ = {
+			isa = PBXGroup;
+			children = (
+				18C608C71B54D9F70045FD64 /* OSCommonImage.h */,
+				18C608C81B54D9F70045FD64 /* OSCommonImage.m */,
+				18C608C91B54D9F70045FD64 /* UIImage+ANImageBitmapRep.h */,
+				18C608CA1B54D9F70045FD64 /* UIImage+ANImageBitmapRep.m */,
+			);
+			path = Compatibility;
+			sourceTree = "<group>";
+		};
+		18C608CB1B54D9F70045FD64 /* CoreGraphics */ = {
+			isa = PBXGroup;
+			children = (
+				18C608CC1B54D9F70045FD64 /* CGContextCreator.h */,
+				18C608CD1B54D9F70045FD64 /* CGContextCreator.m */,
+				18C608CE1B54D9F70045FD64 /* CGImageContainer.h */,
+				18C608CF1B54D9F70045FD64 /* CGImageContainer.m */,
+			);
+			path = CoreGraphics;
+			sourceTree = "<group>";
+		};
+		18C608D01B54D9F70045FD64 /* Manipulators */ = {
+			isa = PBXGroup;
+			children = (
+				18C608D11B54D9F70045FD64 /* BitmapContextManipulator.h */,
+				18C608D21B54D9F70045FD64 /* BitmapContextManipulator.m */,
+				18C608D31B54D9F70045FD64 /* BitmapCropManipulator.h */,
+				18C608D41B54D9F70045FD64 /* BitmapCropManipulator.m */,
+				18C608D51B54D9F70045FD64 /* BitmapDrawManipulator.h */,
+				18C608D61B54D9F70045FD64 /* BitmapDrawManipulator.m */,
+				18C608D71B54D9F70045FD64 /* BitmapRotationManipulator.h */,
+				18C608D81B54D9F70045FD64 /* BitmapRotationManipulator.m */,
+				18C608D91B54D9F70045FD64 /* BitmapScaleManipulator.h */,
+				18C608DA1B54D9F70045FD64 /* BitmapScaleManipulator.m */,
+			);
+			path = Manipulators;
+			sourceTree = "<group>";
+		};
 		18C96D551B4765AE007A8192 = {
 			isa = PBXGroup;
 			children = (
@@ -236,6 +360,7 @@
 		18C96D601B4765AE007A8192 /* 手势解锁&涂鸦板 */ = {
 			isa = PBXGroup;
 			children = (
+				18C608C01B54D9F70045FD64 /* RSColorPicker */,
 				18CEC7C01B4D0FA400E39693 /* MBProgressHUD */,
 				18B12EEB1B4C62340039EE5C /* Behavior */,
 				18BE2F621B4AB6E200809A2E /* Controller */,
@@ -371,8 +496,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C608F91B54DC310045FD64 /* Images.xcassets in Resources */,
 				189418871B511849001BF956 /* Main.storyboard in Resources */,
-				1894187F1B51181B001BF956 /* Images.xcassets in Resources */,
 				18CEC7C71B4D0FA400E39693 /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,27 +518,44 @@
 			files = (
 				1894187B1B511692001BF956 /* main.m in Sources */,
 				18B12EE71B4C16730039EE5C /* LXArrowBrush.m in Sources */,
+				18C608E81B54D9F80045FD64 /* BitmapContextRep.m in Sources */,
+				18C608E71B54D9F80045FD64 /* ANImageBitmapRep.m in Sources */,
+				18C608E91B54D9F80045FD64 /* OSCommonImage.m in Sources */,
 				18CEC7C61B4D0FA400E39693 /* MBProgressHUD+LX.m in Sources */,
 				18BE2F4F1B4AA06900809A2E /* LXPencilBrush.m in Sources */,
+				18C608F21B54D9F80045FD64 /* BGRSLoupeLayer.m in Sources */,
 				18BE2F651B4AB73600809A2E /* LXColorAdjuster.m in Sources */,
 				18BE2F551B4AA2F400809A2E /* LXDashLineBrush.m in Sources */,
+				18C608ED1B54D9F80045FD64 /* BitmapContextManipulator.m in Sources */,
 				18BE2F681B4ADA3700809A2E /* LXImagePicker.m in Sources */,
 				18C96DA21B4779BA007A8192 /* LXUnlockingViewController.m in Sources */,
+				18C608EB1B54D9F80045FD64 /* CGContextCreator.m in Sources */,
 				18C96D891B476643007A8192 /* LXUnlockingView.m in Sources */,
 				18BE2F581B4AA33600809A2E /* LXRectangleBrush.m in Sources */,
+				18C608EE1B54D9F80045FD64 /* BitmapCropManipulator.m in Sources */,
+				18C608F61B54D9F80045FD64 /* RSGenerateOperation.m in Sources */,
 				18C96D981B4767C0007A8192 /* LXPaintControlView.m in Sources */,
 				18BE2F521B4AA0D300809A2E /* LXEraserBrush.m in Sources */,
 				18BE2F5E1B4AA40A00809A2E /* LXLineBrush.m in Sources */,
+				18C608F41B54D9F80045FD64 /* RSColorPickerState.m in Sources */,
+				18C608EC1B54D9F80045FD64 /* CGImageContainer.m in Sources */,
+				18C608F71B54D9F80045FD64 /* RSSelectionLayer.m in Sources */,
 				18CA54901B4E770D00F4B4DF /* LXImageManger.m in Sources */,
 				18CEC7CB1B4D11C800E39693 /* LXPaletteViewController.m in Sources */,
 				18CEC7C81B4D0FA400E39693 /* MBProgressHUD.m in Sources */,
 				18CEC7BF1B4D0F2200E39693 /* LXPaintViewController.m in Sources */,
+				18C608F31B54D9F80045FD64 /* RSColorFunctions.m in Sources */,
 				18C96D951B476763007A8192 /* LXPaintingView.m in Sources */,
 				18C4CE651B496BF200C53609 /* LXPaintingLayer.m in Sources */,
 				189418791B511692001BF956 /* AppDelegate.m in Sources */,
+				18C608EF1B54D9F80045FD64 /* BitmapDrawManipulator.m in Sources */,
+				18C608EA1B54D9F80045FD64 /* UIImage+ANImageBitmapRep.m in Sources */,
+				18C608F11B54D9F80045FD64 /* BitmapScaleManipulator.m in Sources */,
 				18BE2F451B4A4DED00809A2E /* LXBaseBrush.m in Sources */,
 				18BE2F611B4AA7A900809A2E /* LXCircleBrush.m in Sources */,
+				18C608F01B54D9F80045FD64 /* BitmapRotationManipulator.m in Sources */,
 				18BE2F5B1B4AA3E600809A2E /* LXEllipseBrush.m in Sources */,
+				18C608F51B54D9F80045FD64 /* RSColorPickerView.m in Sources */,
 				18078E8C1B4DB5EA000FA0D6 /* LXSquareBrush.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,7 +680,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
-					"-Weverything",
 					"-Wno-direct-ivar-access",
 					"-Wno-implicit-retain-self",
 					"-Wno-gnu-statement-expression",
@@ -556,7 +697,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
-					"-Weverything",
 					"-Wno-direct-ivar-access",
 					"-Wno-implicit-retain-self",
 					"-Wno-gnu-statement-expression",

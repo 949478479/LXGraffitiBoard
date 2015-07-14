@@ -90,7 +90,6 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
 
     [self p_previewBrush];
     [self p_setupPaintBrush];
-    [self p_setupColorButtons];
     [self p_setupNavigationItem];
 }
 
@@ -109,16 +108,6 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
-}
-
-#pragma mark 配置颜色按钮
-
-- (void)p_setupColorButtons
-{
-    // 给颜色按钮们加边框颜色.
-    for (UIButton *button in _colorButtons) {
-        button.layer.borderColor = [UIColor whiteColor].CGColor;
     }
 }
 
@@ -216,11 +205,9 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
 - (IBAction)selectLineColorAction:(UIButton *)sender
 {
     sender.enabled = NO;
-    sender.layer.borderWidth = 2;
     [sender setTitle:@"🎨" forState:UIControlStateNormal];
 
     _selectedColorButton.enabled = YES;
-    _selectedColorButton.layer.borderWidth = 0;
     [_selectedColorButton setTitle:nil forState:UIControlStateNormal];
     _selectedColorButton = sender;
 
