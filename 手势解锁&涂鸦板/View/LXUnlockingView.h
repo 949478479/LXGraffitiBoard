@@ -12,12 +12,12 @@
 @interface LXUnlockingView : UIView
 
 /** 完成回调. */
-@property (copy, nonatomic) BOOL (^completeHandle)(NSString *password);
+@property (nonatomic, copy) BOOL (^completeHandle)(NSString *password);
 
 /** 成功回调. */
-@property (copy, nonatomic) void (^successHandle)();
+@property (nonatomic, copy) void (^successHandle)();
 
 /** 失败回调. */
-@property (copy, nonatomic) void (^failureHandle)();
+@property (nonatomic, copy) void (^failureHandle)();
 
 @end

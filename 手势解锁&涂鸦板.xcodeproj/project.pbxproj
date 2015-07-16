@@ -75,7 +75,7 @@
 		18B12EE51B4C16730039EE5C /* LXArrowBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXArrowBrush.h; sourceTree = "<group>"; };
 		18B12EE61B4C16730039EE5C /* LXArrowBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXArrowBrush.m; sourceTree = "<group>"; };
 		18BE2F3F1B4A4AB100809A2E /* LXPaintBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintBrush.h; sourceTree = "<group>"; };
-		18BE2F431B4A4DED00809A2E /* LXBaseBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = LXBaseBrush.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
+		18BE2F431B4A4DED00809A2E /* LXBaseBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LXBaseBrush.h; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		18BE2F441B4A4DED00809A2E /* LXBaseBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = LXBaseBrush.m; sourceTree = "<group>"; tabWidth = 4; usesTabs = 0; wrapsLines = 1; };
 		18BE2F4D1B4AA06900809A2E /* LXPencilBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPencilBrush.h; sourceTree = "<group>"; };
 		18BE2F4E1B4AA06900809A2E /* LXPencilBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPencilBrush.m; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 		18BE2F511B4AA0D300809A2E /* LXEraserBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEraserBrush.m; sourceTree = "<group>"; };
 		18BE2F531B4AA2F400809A2E /* LXDashLineBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXDashLineBrush.h; sourceTree = "<group>"; };
 		18BE2F541B4AA2F400809A2E /* LXDashLineBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXDashLineBrush.m; sourceTree = "<group>"; };
-		18BE2F561B4AA33600809A2E /* LXRectangleBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXRectangleBrush.h; sourceTree = "<group>"; };
+		18BE2F561B4AA33600809A2E /* LXRectangleBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LXRectangleBrush.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		18BE2F571B4AA33600809A2E /* LXRectangleBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXRectangleBrush.m; sourceTree = "<group>"; };
 		18BE2F591B4AA3E600809A2E /* LXEllipseBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXEllipseBrush.h; sourceTree = "<group>"; };
 		18BE2F5A1B4AA3E600809A2E /* LXEllipseBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXEllipseBrush.m; sourceTree = "<group>"; };

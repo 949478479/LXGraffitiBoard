@@ -12,6 +12,6 @@
 @interface LXRectangleBrush : LXBaseBrush
 
 /** 获取用于椭圆/矩形绘制的矩形范围. */
-@property (readonly, nonatomic) CGRect rectToDraw;
+@property (nonatomic, readonly) CGRect rectToDraw;
 
 @end

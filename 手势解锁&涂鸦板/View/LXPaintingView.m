@@ -48,10 +48,10 @@
 @property (nonatomic) LXPaintingLayer *paintingLayer;
 
 /** 能否撤销. */
-@property (readwrite, nonatomic) BOOL canUndo;
+@property (nonatomic, readwrite) BOOL canUndo;
 
 /** 能否恢复. */
-@property (readwrite, nonatomic) BOOL canRedo;
+@property (nonatomic, readwrite) BOOL canRedo;
 
 /** 是否应该开始触摸系列事件. */
 @property (nonatomic) BOOL touchShouldBegin;

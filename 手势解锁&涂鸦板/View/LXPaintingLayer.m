@@ -24,10 +24,10 @@
 @property (nonatomic) BOOL brushShouldDraw;
 
 /** 能否撤销. */
-@property (readwrite, nonatomic) BOOL canUndo;
+@property (nonatomic, readwrite) BOOL canUndo;
 
 /** 能否恢复. */
-@property (readwrite, nonatomic) BOOL canRedo;
+@property (nonatomic, readwrite) BOOL canRedo;
 
 /** 图片管理者. */
 @property (nonatomic) LXImageManger *imageManger;

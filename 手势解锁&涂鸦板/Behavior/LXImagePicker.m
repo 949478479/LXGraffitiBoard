@@ -11,7 +11,7 @@
 
 @interface LXImagePicker () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
 
-@property (weak, nonatomic) IBOutlet UIViewController *viewController;
+@property (nonatomic, weak) IBOutlet UIViewController *viewController;
 
 @property (nonatomic) UIPopoverController *popover;
 

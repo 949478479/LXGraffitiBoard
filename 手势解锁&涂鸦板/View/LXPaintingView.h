@@ -20,10 +20,10 @@
 @property (nonatomic) id<LXPaintBrush> paintBrush;
 
 /** 能否撤销. */
-@property (readonly, nonatomic) BOOL canUndo;
+@property (nonatomic, readonly) BOOL canUndo;
 
 /** 能否恢复. */
-@property (readonly, nonatomic) BOOL canRedo;
+@property (nonatomic, readonly) BOOL canRedo;
 
 
 /** 清屏. */

@@ -42,20 +42,20 @@ typedef NS_ENUM(NSUInteger, LXBrushType) {
 @property (nonatomic) UIColor *lineColor;
 
 /** 需要重绘的矩形范围. */
-@property (readonly, nonatomic) CGRect redrawRect; 
+@property (nonatomic, readonly) CGRect redrawRect; 
 
 /** 是否需要绘制. */
-@property (readonly, nonatomic) BOOL needsDraw;
+@property (nonatomic, readonly) BOOL needsDraw;
 
 
 /** 初始点. */
-@property (readonly, nonatomic) CGPoint startPoint;
+@property (nonatomic, readonly) CGPoint startPoint;
 
 /** 上一点. */
-@property (readonly, nonatomic) CGPoint previousPoint;
+@property (nonatomic, readonly) CGPoint previousPoint;
 
 /** 当前点. */
-@property (readonly, nonatomic) CGPoint currentPoint;
+@property (nonatomic, readonly) CGPoint currentPoint;
 
 
 /** 配置上下文. */
