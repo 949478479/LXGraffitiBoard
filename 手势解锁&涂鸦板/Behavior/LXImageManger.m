@@ -39,7 +39,7 @@ static const NSInteger kLXInvalidIndex = -1;
 
 @implementation LXImageManger
 
-#pragma mark 获取图片管理者
+#pragma mark - 获取图片管理者
 
 + (instancetype)sharedManger
 {
@@ -75,7 +75,7 @@ static const NSInteger kLXInvalidIndex = -1;
     return self;
 }
 
-#pragma mark 添加图片
+#pragma mark - 添加图片
 
 - (void)addImage:(UIImage *)image
 {
@@ -88,7 +88,7 @@ static const NSInteger kLXInvalidIndex = -1;
     });
 }
 
-#pragma mark 撤销
+#pragma mark - 撤销
 
 - (BOOL)canUndo
 {
@@ -108,7 +108,7 @@ static const NSInteger kLXInvalidIndex = -1;
     return image;
 }
 
-#pragma mark 恢复
+#pragma mark - 恢复
 
 - (BOOL)canRedo
 {
@@ -126,7 +126,7 @@ static const NSInteger kLXInvalidIndex = -1;
     return image;
 }
 
-#pragma mark 移除所有图片
+#pragma mark - 移除所有图片
 
 - (void)removeAllImages
 {

@@ -20,7 +20,7 @@
 
 @implementation LXImagePicker
 
-#pragma mark 选择照片
+#pragma mark - 选择照片
 
 - (IBAction)pickImageAction:(UIBarButtonItem *)sender
 {
@@ -35,7 +35,7 @@
                                      animated:YES];
 }
 
-#pragma mark UIImagePickerControllerDelegate
+#pragma mark - UIImagePickerControllerDelegate
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
@@ -52,7 +52,7 @@
     _popover = nil;
 }
 
-#pragma mark UIPopoverControllerDelegate
+#pragma mark - UIPopoverControllerDelegate
 
 - (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
 {

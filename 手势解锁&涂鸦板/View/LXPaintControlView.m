@@ -82,7 +82,7 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
 
 @implementation LXPaintControlView
 
-#pragma mark 初始化
+#pragma mark - 初始化
 
 - (void)awakeFromNib
 {
@@ -93,7 +93,7 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     [self p_setupNavigationItem];
 }
 
-#pragma mark KVO
+#pragma mark - KVO
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -111,7 +111,7 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     }
 }
 
-#pragma mark 配置画刷
+#pragma mark - 配置画刷
 
 - (void)p_setupPaintBrush
 {
@@ -132,7 +132,7 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
                        context:NULL];
 }
 
-#pragma mark 配置导航栏
+#pragma mark - 配置导航栏
 
 - (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
 {
@@ -174,7 +174,7 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     _navItem.rightBarButtonItems = @[ _navItem.rightBarButtonItem, spacerItem, resetColorItem ];
 }
 
-#pragma mark 预览画笔
+#pragma mark - 预览画笔
 
 - (void)p_previewBrush
 {
@@ -193,7 +193,7 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     previewLayer.backgroundColor = _selectedColorButton.backgroundColor.CGColor;
 }
 
-#pragma mark 设置线条粗细和颜色
+#pragma mark - 设置线条粗细和颜色
 
 - (IBAction)selectLineWidthAction:(UISlider *)sender
 {
@@ -216,7 +216,7 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     [self p_previewBrush];
 }
 
-#pragma mark 调色盘
+#pragma mark - 调色盘
 
 - (void)setSelectedColor:(UIColor *)selectedColor
 {
@@ -231,7 +231,7 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     return _selectedColorButton.backgroundColor;
 }
 
-#pragma mark 重置颜色按钮
+#pragma mark - 重置颜色按钮
 
 - (void)resetColorAction
 {
@@ -244,7 +244,7 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     [self p_previewBrush];
 }
 
-#pragma mark 选择画笔工具
+#pragma mark - 选择画笔工具
 
 - (IBAction)selectBrushAction:(UISegmentedControl *)sender
 {
@@ -294,21 +294,21 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     _paintingView.paintBrush = paintBrush;
 }
 
-#pragma mark 图片选取完成
+#pragma mark - 图片选取完成
 
 - (IBAction)didSelectImageAction:(LXImagePicker *)sender
 {
     _paintingView.backgroundImage = sender.selectedImage;
 }
 
-#pragma mark 删除照片
+#pragma mark - 删除照片
 
 - (void)deleteImageAction
 {
     _paintingView.backgroundImage = nil;
 }
 
-#pragma mark 清屏 保存 撤销 恢复
+#pragma mark - 清屏 保存 撤销 恢复
 
 - (void)clearAction
 {

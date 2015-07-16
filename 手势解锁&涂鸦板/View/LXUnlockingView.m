@@ -47,7 +47,7 @@ static const CGFloat   kLXLineWidth   = 10;
     CGPathRelease(_path);
 }
 
-#pragma mark 初始化
+#pragma mark - 初始化
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -112,7 +112,7 @@ static const CGFloat   kLXLineWidth   = 10;
     }];
 }
 
-#pragma mark 触摸事件
+#pragma mark - 触摸事件
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -129,7 +129,7 @@ static const CGFloat   kLXLineWidth   = 10;
     [self p_handleForTouchesEnded:touches];
 }
 
-#pragma mark 绘制图案
+#pragma mark - 绘制图案
 
 - (void)drawRect:(CGRect)rect
 {
@@ -148,7 +148,7 @@ static const CGFloat   kLXLineWidth   = 10;
     CGContextStrokePath(context);
 }
 
-#pragma mark 辅助方法
+#pragma mark - 辅助方法
 
 /** 返回触摸点位置对应的按钮,若不在任何按钮范围内则返回 nil. */
 - (UIButton *)p_buttonForPoint:(CGPoint)point
@@ -175,7 +175,7 @@ static const CGFloat   kLXLineWidth   = 10;
     return CGRectMake(minX, minY, maxX - minX, maxY - minY);
 }
 
-#pragma mark 触摸处理
+#pragma mark - 触摸处理
 
 /** 根据触摸位置渲染连线. */
 - (void)p_handleForTouchesBeganAndMoved:(NSSet *)touches

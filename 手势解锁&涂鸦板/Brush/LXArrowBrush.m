@@ -116,7 +116,7 @@ static const CGFloat kLXRamifyAngle = M_PI_4 * 0.5;
     return CGRectMake(minX, minY, maxX - minX, maxY - minY);
 }
 
-#pragma mark 计算分叉点
+#pragma mark - 计算分叉点
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wfloat-equal"

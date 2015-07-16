@@ -65,7 +65,7 @@
 @implementation LXPaintingView
 @dynamic backgroundImage, paintBrush;
 
-#pragma mark 初始化
+#pragma mark - 初始化
 
 - (instancetype)initWithCoder:(NSCoder *)coder
 {
@@ -117,7 +117,7 @@
     }
 }
 
-#pragma mark 触摸事件处理
+#pragma mark - 触摸事件处理
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -152,7 +152,7 @@
     }
 }
 
-#pragma mark 配置画板
+#pragma mark - 配置画板
 
 - (void)setBackgroundImage:(UIImage *)image
 {
@@ -215,7 +215,7 @@
     return _paintingLayer.paintBrush;
 }
 
-#pragma mark 清屏和撤销
+#pragma mark - 清屏和撤销
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
@@ -263,7 +263,7 @@
     [_paintingLayer redo];
 }
 
-#pragma mark 保存图片
+#pragma mark - 保存图片
 
 - (void)saveToPhotosAlbum
 {

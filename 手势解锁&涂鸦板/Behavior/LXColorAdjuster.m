@@ -32,7 +32,7 @@
 
 @implementation LXColorAdjuster
 
-#pragma mark 设置预览窗边框
+#pragma mark - 设置预览窗边框
 
 - (void)setPreviewView:(UIView *)previewView
 {
@@ -42,7 +42,7 @@
     _previewView.layer.cornerRadius = CGRectGetHeight(_previewView.bounds) / 4;
 }
 
-#pragma mark 配置调色盘
+#pragma mark - 配置调色盘
 
 - (void)setColorPicker:(RSColorPickerView *)colorPicker
 {
@@ -68,21 +68,21 @@
     _brightnessSlider.value = _colorPicker.brightness;
 }
 
-#pragma mark 调节亮度
+#pragma mark - 调节亮度
 
 - (IBAction)brightnessChangeAction:(UISlider *)sender
 {
     _colorPicker.brightness = sender.value;
 }
 
-#pragma mark 调节透明度
+#pragma mark - 调节透明度
 
 - (IBAction)alphaChangeAction:(UISlider *)sender
 {
     _colorPicker.opacity = sender.value;
 }
 
-#pragma mark RSColorPickerViewDelegate
+#pragma mark - RSColorPickerViewDelegate
 
 - (void)colorPickerDidChangeSelection:(RSColorPickerView *)colorPicker
 {

@@ -37,7 +37,7 @@
 
 @implementation LXPaintingLayer
 
-#pragma mark 初始化
+#pragma mark - 初始化
 
 - (instancetype)init
 {
@@ -59,7 +59,7 @@
     return [super actionForKey:event];
 }
 
-#pragma mark 绘图
+#pragma mark - 绘图
 
 - (void)drawInContext:(CGContextRef)ctx
 {
@@ -92,7 +92,7 @@
 #endif
 }
 
-#pragma mark 触摸处理
+#pragma mark - 触摸处理
 
 - (void)touchAction:(UITouch *)touch
 {
@@ -143,7 +143,7 @@
     }
 }
 
-#pragma mark 清屏 撤销 恢复
+#pragma mark - 清屏 撤销 恢复
 
 - (void)clear
 {

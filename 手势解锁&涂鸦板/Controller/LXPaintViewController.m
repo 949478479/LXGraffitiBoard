@@ -22,7 +22,7 @@
 
 @implementation LXPaintViewController
 
-#pragma mark Navigation
+#pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

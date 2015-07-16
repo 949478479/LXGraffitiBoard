@@ -54,7 +54,7 @@
     return nil;
 }
 
-#pragma mark LXPaintBrush 协议方法
+#pragma mark - LXPaintBrush 协议方法
 
 - (void)beginAtPoint:(CGPoint)point
 {
@@ -93,7 +93,7 @@
     return CGRectMake(minX, minY, maxX - minX, maxY - minY);
 }
 
-#pragma mark 配置上下文
+#pragma mark - 配置上下文
 
 - (void)configureContext:(CGContextRef)context
 {

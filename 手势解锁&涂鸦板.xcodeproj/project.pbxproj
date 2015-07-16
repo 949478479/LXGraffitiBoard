@@ -92,9 +92,9 @@
 		18BE2F5F1B4AA7A900809A2E /* LXCircleBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXCircleBrush.h; sourceTree = "<group>"; };
 		18BE2F601B4AA7A900809A2E /* LXCircleBrush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXCircleBrush.m; sourceTree = "<group>"; };
 		18BE2F631B4AB73600809A2E /* LXColorAdjuster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXColorAdjuster.h; sourceTree = "<group>"; };
-		18BE2F641B4AB73600809A2E /* LXColorAdjuster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXColorAdjuster.m; sourceTree = "<group>"; };
+		18BE2F641B4AB73600809A2E /* LXColorAdjuster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LXColorAdjuster.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		18BE2F661B4ADA3700809A2E /* LXImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXImagePicker.h; sourceTree = "<group>"; };
-		18BE2F671B4ADA3700809A2E /* LXImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXImagePicker.m; sourceTree = "<group>"; };
+		18BE2F671B4ADA3700809A2E /* LXImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LXImagePicker.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		18C4CE631B496BF200C53609 /* LXPaintingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintingLayer.h; sourceTree = "<group>"; };
 		18C4CE641B496BF200C53609 /* LXPaintingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPaintingLayer.m; sourceTree = "<group>"; };
 		18C608C21B54D9F70045FD64 /* ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANImageBitmapRep.h; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		18C96DA01B4779BA007A8192 /* LXUnlockingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXUnlockingViewController.h; sourceTree = "<group>"; };
 		18C96DA11B4779BA007A8192 /* LXUnlockingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXUnlockingViewController.m; sourceTree = "<group>"; };
 		18CA548E1B4E770D00F4B4DF /* LXImageManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXImageManger.h; sourceTree = "<group>"; };
-		18CA548F1B4E770D00F4B4DF /* LXImageManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXImageManger.m; sourceTree = "<group>"; };
+		18CA548F1B4E770D00F4B4DF /* LXImageManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LXImageManger.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		18CEC7BD1B4D0F2200E39693 /* LXPaintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintViewController.h; sourceTree = "<group>"; };
 		18CEC7BE1B4D0F2200E39693 /* LXPaintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXPaintViewController.m; sourceTree = "<group>"; };
 		18CEC7C11B4D0FA400E39693 /* MBProgressHUD+LX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+LX.h"; sourceTree = "<group>"; };
