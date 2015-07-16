@@ -20,7 +20,6 @@
 
 @implementation LXBaseBrush
 
-/** 创建对应类型的画笔. */
 + (id<LXPaintBrush>)brushWithType:(LXBrushType)brushType
 {
     switch (brushType) {
