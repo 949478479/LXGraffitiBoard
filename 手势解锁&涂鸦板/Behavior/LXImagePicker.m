@@ -9,11 +9,10 @@
 #import "LXImagePicker.h"
 
 
-@interface LXImagePicker () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIPopoverControllerDelegate>
+@interface LXImagePicker () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+/** 关联的视图控制器. */
 @property (nonatomic, weak) IBOutlet UIViewController *viewController;
-
-@property (nonatomic) UIPopoverController *popover;
 
 @end
 
@@ -24,39 +23,35 @@
 
 - (IBAction)pickImageAction:(UIBarButtonItem *)sender
 {
-    UIImagePickerController *pickerVC = [UIImagePickerController new];
-    pickerVC.delegate   = self;
-    pickerVC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    UIImagePickerController *pickerVC = ({
+        pickerVC = [UIImagePickerController new];
 
-    _popover = [[UIPopoverController alloc] initWithContentViewController:pickerVC];
-    _popover.delegate = self;
-    [_popover presentPopoverFromBarButtonItem:sender
-                     permittedArrowDirections:UIPopoverArrowDirectionAny
-                                     animated:YES];
+        pickerVC.delegate   = self;
+        pickerVC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+
+        pickerVC.modalPresentationStyle = UIModalPresentationPopover;
+        pickerVC.popoverPresentationController.barButtonItem = sender;
+
+        pickerVC;
+    });
+
+    [_viewController presentViewController:pickerVC animated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (void)imagePickerController:(UIImagePickerController *)picker
+    didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     _selectedImage = info[UIImagePickerControllerOriginalImage];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
     
-    [_popover dismissPopoverAnimated:YES];
-    _popover = nil;
+    [_viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [_popover dismissPopoverAnimated:YES];
-    _popover = nil;
-}
-
-#pragma mark - UIPopoverControllerDelegate
-
-- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
-{
-    _popover = nil;
+    [_viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

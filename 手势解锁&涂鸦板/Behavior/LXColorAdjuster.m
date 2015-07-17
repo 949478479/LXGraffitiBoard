@@ -96,7 +96,7 @@
     _previewView.backgroundColor = color;
 
     _RGBALabel.text = [NSString stringWithFormat:@"RGBA: %ld, %ld, %ld, %.2f",
-        (NSInteger)(red * 255), (NSInteger)(green * 255), (NSInteger)(blue * 255), alpha];
+        (long)(red * 255), (long)(green * 255), (long)(blue * 255), alpha];
 }
 
 @end
