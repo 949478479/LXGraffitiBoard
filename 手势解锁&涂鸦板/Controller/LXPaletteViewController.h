@@ -14,7 +14,7 @@
 @interface LXPaletteViewController : UIViewController
 
 /** 颜色调节器. */
-@property (nonatomic, readonly) LXColorAdjuster *colorSelector;
+@property (nonatomic, readonly, strong) LXColorAdjuster *colorSelector;
 
 /** 颜色调节完成后的回调. */
 @property (nonatomic, copy) void (^changeColorDidComplete)(UIColor *color);

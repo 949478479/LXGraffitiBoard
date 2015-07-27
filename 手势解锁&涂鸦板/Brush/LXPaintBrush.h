@@ -15,7 +15,7 @@
 @property (nonatomic) CGFloat lineWidth;
 
 /** 线条颜色. */
-@property (nonatomic) UIColor *lineColor;
+@property (nonatomic, strong) UIColor *lineColor;
 
 /** 需要重绘的矩形范围. */
 @property (nonatomic, readonly) CGRect redrawRect;

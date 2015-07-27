@@ -51,31 +51,31 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
 @interface LXPaintControlView () <UIBarPositioningDelegate>
 
 /** 导航栏. */
-@property (nonatomic) IBOutlet UINavigationItem *navItem;
+@property (nonatomic, strong) IBOutlet UINavigationItem *navItem;
 
 /** 涂鸦板. */
-@property (nonatomic) IBOutlet LXPaintingView *paintingView;
+@property (nonatomic, strong) IBOutlet LXPaintingView *paintingView;
 
 /** 预览小窗口. */
-@property (nonatomic) IBOutlet UIView   *previewView;
+@property (nonatomic, strong) IBOutlet UIView   *previewView;
 
 /** 线条宽度滑块. */
-@property (nonatomic) IBOutlet UISlider *lineWidthSlider;
+@property (nonatomic, strong) IBOutlet UISlider *lineWidthSlider;
 
 /** 撤销按钮. */
-@property (nonatomic) IBOutlet UIButton *undoButton;
+@property (nonatomic, strong) IBOutlet UIButton *undoButton;
 
 /** 恢复按钮. */
-@property (nonatomic) IBOutlet UIButton *redoButton;
+@property (nonatomic, strong) IBOutlet UIButton *redoButton;
 
 /** 画笔类型控制器. */
-@property (nonatomic) IBOutlet UISegmentedControl *brushTypeControl;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *brushTypeControl;
 
 /** 选中的颜色按钮. */
-@property (nonatomic) IBOutlet UIButton *selectedColorButton;
+@property (nonatomic, strong) IBOutlet UIButton *selectedColorButton;
 
 /** 颜色按钮们. */
-@property (nonatomic) IBOutletCollection(UIButton) NSArray *colorButtons;
+@property (nonatomic, strong) IBOutletCollection(UIButton) NSArray *colorButtons;
 
 @end
 
@@ -101,10 +101,10 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
                        context:(void *)context
 {
     if ([keyPath isEqualToString:@"canUndo"]) {
-        _undoButton.enabled = _paintingView.canUndo;
+        self.undoButton.enabled = self.paintingView.canUndo;
     }
     else if ([keyPath isEqualToString:@"canRedo"]) {
-        _redoButton.enabled = _paintingView.canRedo;
+        self.redoButton.enabled = self.paintingView.canRedo;
     }
     else {
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -116,20 +116,20 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
 - (void)p_setupPaintBrush
 {
     // 创建并设置画刷.
-    id<LXPaintBrush> paintBrush = [LXBaseBrush brushWithType:LXBrushTypePencil];
-    paintBrush.lineWidth        = _lineWidthSlider.value;
-    paintBrush.lineColor        = _selectedColorButton.backgroundColor;
-    _paintingView.paintBrush    = paintBrush;
+    id<LXPaintBrush> paintBrush  = [LXBaseBrush brushWithType:LXBrushTypePencil];
+    paintBrush.lineWidth         = self.lineWidthSlider.value;
+    paintBrush.lineColor         = self.selectedColorButton.backgroundColor;
+    self.paintingView.paintBrush = paintBrush;
 
     // 注册 KVO 方便更新按钮状态.
-    [_paintingView addObserver:self
-                    forKeyPath:@"canUndo"
-                       options:(NSKeyValueObservingOptions)0
-                       context:NULL];
-    [_paintingView addObserver:self
-                    forKeyPath:@"canRedo"
-                       options:(NSKeyValueObservingOptions)0
-                       context:NULL];
+    [self.paintingView addObserver:self
+                        forKeyPath:@"canUndo"
+                           options:(NSKeyValueObservingOptions)kNilOptions
+                           context:NULL];
+    [self.paintingView addObserver:self
+                        forKeyPath:@"canRedo"
+                           options:(NSKeyValueObservingOptions)kNilOptions
+                           context:NULL];
 }
 
 #pragma mark - 配置导航栏
@@ -161,43 +161,43 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
                                                                        target:self
                                                                        action:@selector(saveAction)];
 
-    _navItem.leftBarButtonItems = @[ _navItem.leftBarButtonItem, spacerItem,
-                                     deleteImageItem, spacerItem,
-                                     clearItem, spacerItem,
-                                     saveItem ];
+    self.navItem.leftBarButtonItems  = @[ self.navItem.leftBarButtonItem, spacerItem,
+                                          deleteImageItem, spacerItem,
+                                          clearItem, spacerItem,
+                                          saveItem ];
 
-    UIBarButtonItem *resetColorItem = [[UIBarButtonItem alloc] initWithTitle:@"🔃重置颜色"
-                                                                       style:UIBarButtonItemStylePlain
-                                                                      target:self
-                                                                      action:@selector(resetColorAction)];
+    UIBarButtonItem *resetColorItem  = [[UIBarButtonItem alloc] initWithTitle:@"🔃重置颜色"
+                                                                        style:UIBarButtonItemStylePlain
+                                                                       target:self
+                                                                       action:@selector(resetColorAction)];
                                                                       
-    _navItem.rightBarButtonItems = @[ _navItem.rightBarButtonItem, spacerItem, resetColorItem ];
+    self.navItem.rightBarButtonItems = @[ self.navItem.rightBarButtonItem, spacerItem, resetColorItem ];
 }
 
 #pragma mark - 预览画笔
 
 - (void)p_previewBrush
 {
-    CALayer *previewLayer = _previewView.layer.sublayers.lastObject;
+    CALayer *previewLayer = self.previewView.layer.sublayers.lastObject;
     if (!previewLayer) {
         previewLayer = [CALayer layer];
         previewLayer.position = (CGPoint) {
-            CGRectGetMidX(_previewView.bounds), CGRectGetMidY(_previewView.bounds)
+            CGRectGetMidX(self.previewView.bounds), CGRectGetMidY(self.previewView.bounds)
         };
-        [_previewView.layer addSublayer:previewLayer];
+        [self.previewView.layer addSublayer:previewLayer];
     }
     previewLayer.bounds = (CGRect) {
-        .size = { _lineWidthSlider.value, _lineWidthSlider.value }
+        .size = { self.lineWidthSlider.value, self.lineWidthSlider.value }
     };
     previewLayer.cornerRadius    = CGRectGetWidth(previewLayer.bounds) / 2;
-    previewLayer.backgroundColor = _selectedColorButton.backgroundColor.CGColor;
+    previewLayer.backgroundColor = self.selectedColorButton.backgroundColor.CGColor;
 }
 
 #pragma mark - 设置线条粗细和颜色
 
 - (IBAction)selectLineWidthAction:(UISlider *)sender
 {
-    _paintingView.paintBrush.lineWidth = sender.value;
+    self.paintingView.paintBrush.lineWidth = sender.value;
 
     [self p_previewBrush];
 }
@@ -207,11 +207,11 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
     sender.enabled = NO;
     [sender setTitle:@"🎨" forState:UIControlStateNormal];
 
-    _selectedColorButton.enabled = YES;
-    [_selectedColorButton setTitle:nil forState:UIControlStateNormal];
-    _selectedColorButton = sender;
+    self.selectedColorButton.enabled = YES;
+    [self.selectedColorButton setTitle:nil forState:UIControlStateNormal];
+    self.selectedColorButton = sender;
 
-    _paintingView.paintBrush.lineColor = sender.backgroundColor;
+    self.paintingView.paintBrush.lineColor = sender.backgroundColor;
 
     [self p_previewBrush];
 }
@@ -220,26 +220,26 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
 
 - (void)setSelectedColor:(UIColor *)selectedColor
 {
-    _selectedColorButton.backgroundColor = selectedColor;
-    _paintingView.paintBrush.lineColor   = selectedColor;
+    self.selectedColorButton.backgroundColor = selectedColor;
+    self.paintingView.paintBrush.lineColor   = selectedColor;
 
     [self p_previewBrush];
 }
 
 - (UIColor *)selectedColor
 {
-    return _selectedColorButton.backgroundColor;
+    return self.selectedColorButton.backgroundColor;
 }
 
 #pragma mark - 重置颜色按钮
 
 - (void)resetColorAction
 {
-    for (UIButton *button in _colorButtons) {
+    for (UIButton *button in self.colorButtons) {
         button.backgroundColor = button.tintColor;
     }
 
-    _paintingView.paintBrush.lineColor = _selectedColorButton.backgroundColor;
+    self.paintingView.paintBrush.lineColor = self.selectedColorButton.backgroundColor;
 
     [self p_previewBrush];
 }
@@ -288,46 +288,46 @@ typedef NS_ENUM(NSUInteger, LXPaintBrushType) {
             break;
     }
 
-    paintBrush.lineWidth = _lineWidthSlider.value;
-    paintBrush.lineColor = _selectedColorButton.backgroundColor;
+    paintBrush.lineWidth = self.lineWidthSlider.value;
+    paintBrush.lineColor = self.selectedColorButton.backgroundColor;
 
-    _paintingView.paintBrush = paintBrush;
+    self.paintingView.paintBrush = paintBrush;
 }
 
 #pragma mark - 图片选取完成
 
 - (IBAction)didSelectImageAction:(LXImagePicker *)sender
 {
-    _paintingView.backgroundImage = sender.selectedImage;
+    self.paintingView.backgroundImage = sender.selectedImage;
 }
 
 #pragma mark - 删除照片
 
 - (void)deleteImageAction
 {
-    _paintingView.backgroundImage = nil;
+    self.paintingView.backgroundImage = nil;
 }
 
 #pragma mark - 清屏 保存 撤销 恢复
 
 - (void)clearAction
 {
-    [_paintingView clear];
+    [self.paintingView clear];
 }
 
 - (void)saveAction
 {
-    [_paintingView saveToPhotosAlbum];
+    [self.paintingView saveToPhotosAlbum];
 }
 
 - (IBAction)undoAction:(UIButton *)sender
 {
-    [_paintingView undo];
+    [self.paintingView undo];
 }
 
 - (IBAction)redoAction:(id)sender
 {
-    [_paintingView redo];
+    [self.paintingView redo];
 }
 
 @end

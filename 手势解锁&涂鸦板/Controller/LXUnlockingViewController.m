@@ -12,7 +12,7 @@
 
 @interface LXUnlockingViewController ()
 
-@property (nonatomic) IBOutlet LXUnlockingView *unlockingView;
+@property (nonatomic, strong) IBOutlet LXUnlockingView *unlockingView;
 
 @end
 
@@ -23,14 +23,14 @@
 {
     [super viewDidLoad];
 
-    _unlockingView.completeHandle = ^(NSString *password){
+    self.unlockingView.completeHandle = ^(NSString *password){
         NSLog(@"password: %@", password);
         return [password isEqualToString:@"0124678"];
     };
 
-    __typeof(self) __weak weakSelf = self;
-    _unlockingView.successHandle = ^{
-    
+    __weak __typeof(self) weakSelf = self;
+    self.unlockingView.successHandle = ^{
+
         UIViewController *toVC = [weakSelf.storyboard instantiateViewControllerWithIdentifier:
                                   @"LXPaintViewController"];
 
@@ -39,8 +39,8 @@
                           duration:1
                            options:UIViewAnimationOptionTransitionFlipFromLeft
                         completion:^(BOOL finished) {
-            toVC.view.window.rootViewController = toVC;
-        }];
+                            toVC.view.window.rootViewController = toVC;
+                        }];
     };
 }
 

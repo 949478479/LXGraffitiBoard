@@ -12,6 +12,6 @@
 @interface LXColorAdjuster : NSObject
 
 /** 调色盘的颜色. */
-@property (nonatomic) UIColor *paletteColor;
+@property (nonatomic, strong) UIColor *paletteColor;
 
 @end

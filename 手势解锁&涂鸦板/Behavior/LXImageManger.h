@@ -12,7 +12,7 @@
 @interface LXImageManger : NSObject
 
 /** 获取图片管理者. */
-+ (instancetype)sharedManger;
++ (instancetype)sharedImageManger;
 
 /** 添加图片. */
 - (void)addImage:(UIImage *)image;

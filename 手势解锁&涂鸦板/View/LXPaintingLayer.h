@@ -20,7 +20,7 @@
 @property (nonatomic, readonly) BOOL canRedo;
 
 /** 画刷对象. */
-@property (nonatomic) id<LXPaintBrush> paintBrush;
+@property (nonatomic, strong) id<LXPaintBrush> paintBrush;
 
 
 /** 触摸事件响应,于四个触摸事件发生时调用此方法并将 UITouch 传入. */

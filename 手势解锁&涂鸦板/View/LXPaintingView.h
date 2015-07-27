@@ -14,10 +14,10 @@
 @interface LXPaintingView : UIView
 
 /** 背景照片. */
-@property (nonatomic) UIImage *backgroundImage;
+@property (nonatomic, strong) UIImage *backgroundImage;
 
 /** 画刷. */
-@property (nonatomic) id<LXPaintBrush> paintBrush;
+@property (nonatomic, strong) id<LXPaintBrush> paintBrush;
 
 /** 能否撤销. */
 @property (nonatomic, readonly) BOOL canUndo;

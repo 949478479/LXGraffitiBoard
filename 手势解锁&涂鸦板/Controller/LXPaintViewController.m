@@ -15,7 +15,7 @@
 @interface LXPaintViewController ()
 
 /** 涂鸦控制面板. */
-@property (nonatomic) IBOutlet LXPaintControlView *contorlView;
+@property (nonatomic, strong) IBOutlet LXPaintControlView *contorlView;
 
 @end
 
@@ -29,9 +29,9 @@
     if ([segue.identifier isEqualToString:@"PopoverPaletteVC"]) {
     
         LXPaletteViewController *paletteVC   = segue.destinationViewController;
-        paletteVC.colorSelector.paletteColor = _contorlView.selectedColor;
+        paletteVC.colorSelector.paletteColor = self.contorlView.selectedColor;
         paletteVC.changeColorDidComplete     = ^(UIColor *color) {
-            _contorlView.selectedColor = color;
+            self.contorlView.selectedColor   = color;
         };
     }
 }

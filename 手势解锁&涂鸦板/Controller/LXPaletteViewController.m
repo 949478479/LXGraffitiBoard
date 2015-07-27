@@ -13,7 +13,7 @@
 @interface LXPaletteViewController ()
 
 /** 颜色调节器. */
-@property (nonatomic) IBOutlet LXColorAdjuster *colorSelector;
+@property (nonatomic, strong) IBOutlet LXColorAdjuster *colorSelector;
 
 @end
 
@@ -24,8 +24,8 @@
 {
     [super viewWillDisappear:animated];
 
-    if (_changeColorDidComplete) {
-        _changeColorDidComplete(_colorSelector.paletteColor);
+    if (self.changeColorDidComplete) {
+        self.changeColorDidComplete(self.colorSelector.paletteColor);
     }
 }
 

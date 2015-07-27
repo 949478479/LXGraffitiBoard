@@ -11,22 +11,25 @@
 
 
 /** 每行/列按钮个数. */
-static const NSInteger kLXButtonCount = 3;
+static const NSInteger kButtonCount = 3;
 
 /** 按钮尺寸. */
-static const CGFloat   kLXButtonSize  = 74;
+static const CGFloat   kButtonSize  = 74;
 
 /** 线条宽度 */
-static const CGFloat   kLXLineWidth   = 10;
+static const CGFloat   kLineWidth   = 10;
 
 /** 线条颜色. */
-#define LX_LINE_COLOR [UIColor colorWithRed:144/255.0 green:217/255.0 blue:245/255.0 alpha:1]
+static inline UIColor * LXLineColor()
+{
+    return [UIColor colorWithRed:144/255.0 green:217/255.0 blue:245/255.0 alpha:1];
+}
 
 
 @interface LXUnlockingView ()
 
 /** 线条颜色. */
-@property (nonatomic) UIColor *lineColor;
+@property (nonatomic, strong) UIColor *lineColor;
 
 /** 当前触摸点. */
 @property (nonatomic) CGPoint currentPoint;
@@ -35,7 +38,7 @@ static const CGFloat   kLXLineWidth   = 10;
 @property (nonatomic) CGMutablePathRef path;
 
 /** 选中的按钮们. */
-@property (nonatomic) NSMutableArray *buttons;
+@property (nonatomic, strong) NSMutableArray *buttons;
 
 @end
 
@@ -44,7 +47,9 @@ static const CGFloat   kLXLineWidth   = 10;
 
 - (void)dealloc
 {
-    CGPathRelease(_path);
+    if (_path) {
+        CGPathRelease(_path);
+    }
 }
 
 #pragma mark - 初始化
@@ -67,11 +72,11 @@ static const CGFloat   kLXLineWidth   = 10;
     return self;
 }
 
-/** 配置九个按钮. */
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdirect-ivar-access"
 - (void)p_commonInit
 {
-    _lineColor = LX_LINE_COLOR;
-    _path      = CGPathCreateMutable();
+    _lineColor = LXLineColor();
     _buttons   = [NSMutableArray new];
 
     for (NSInteger i = 0; i < 9; ++i) {
@@ -91,24 +96,25 @@ static const CGFloat   kLXLineWidth   = 10;
 
     self.layer.drawsAsynchronously = YES;
 }
+#pragma clang diagnostic pop
 
-/** 布局按钮. */
 - (void)layoutSubviews
 {
     [super layoutSubviews];
 
+    // 布局按钮.
     CGFloat marginH = ({
-        (CGRectGetWidth(self.bounds)  - kLXButtonSize * kLXButtonCount) / (kLXButtonCount + 1);
+        (CGRectGetWidth(self.bounds)  - kButtonSize * kButtonCount) / (kButtonCount + 1);
     });
     CGFloat marginV = ({
-        (CGRectGetHeight(self.bounds) - kLXButtonSize * kLXButtonCount) / (kLXButtonCount + 1);
+        (CGRectGetHeight(self.bounds) - kButtonSize * kButtonCount) / (kButtonCount + 1);
     });
 
     [self.subviews enumerateObjectsUsingBlock:^(UIButton *button, NSUInteger idx, BOOL *stop) {
         NSUInteger row = idx / 3, col = idx % 3;
-        CGFloat x = (marginH + kLXButtonSize) * col + marginH;
-        CGFloat y = (marginV + kLXButtonSize) * row + marginV;
-        button.frame = CGRectMake(x, y, kLXButtonSize, kLXButtonSize);
+        CGFloat x      = (marginH + kButtonSize) * col + marginH;
+        CGFloat y      = (marginV + kButtonSize) * row + marginV;
+        button.frame   = CGRectMake(x, y, kButtonSize, kButtonSize);
     }];
 }
 
@@ -126,24 +132,29 @@ static const CGFloat   kLXLineWidth   = 10;
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self p_handleForTouchesEnded:touches];
+    [self p_handleForTouchesEndedOrCancelled:touches];
+}
+
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self p_handleForTouchesEndedOrCancelled:touches];
 }
 
 #pragma mark - 绘制图案
 
 - (void)drawRect:(CGRect)rect
 {
-    if (!_path || CGPathIsEmpty(_path)) return;
+    if (!self.path || CGPathIsEmpty(self.path)) return;
 
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-    CGContextAddPath(context, _path);
-    CGContextAddLineToPoint(context, _currentPoint.x, _currentPoint.y);
+    CGContextAddPath(context, self.path);
+    CGContextAddLineToPoint(context, self.currentPoint.x, self.currentPoint.y);
 
-    CGContextSetLineWidth(context, kLXLineWidth);
+    CGContextSetLineWidth(context, kLineWidth);
     CGContextSetLineCap(context, kCGLineCapRound);
     CGContextSetLineJoin(context, kCGLineJoinRound);
-    CGContextSetStrokeColorWithColor(context, _lineColor.CGColor);
+    CGContextSetStrokeColorWithColor(context, self.lineColor.CGColor);
 
     CGContextStrokePath(context);
 }
@@ -175,107 +186,124 @@ static const CGFloat   kLXLineWidth   = 10;
     return CGRectMake(minX, minY, maxX - minX, maxY - minY);
 }
 
-#pragma mark - 触摸处理
+#pragma mark - 触摸过程处理
 
-/** 根据触摸位置渲染连线. */
 - (void)p_handleForTouchesBeganAndMoved:(NSSet *)touches
 {
-    CGPoint point1 = _currentPoint;
-    CGPoint point2 = CGPointZero;
-    CGPoint point3 = CGPointZero;
+    CGPoint point1    = self.currentPoint;
+    CGPoint point2    = CGPointZero;
+    CGPoint point3    = CGPointZero;
 
-    _currentPoint = [touches.anyObject locationInView:self];
+    self.currentPoint = [touches.anyObject locationInView:self];
 
-    BOOL isNewButton = NO; // 是否连接到新按钮(第一个按钮不按新按钮算).
-    UIButton *button = [self p_buttonForPoint:_currentPoint];
+    UIButton *button  = [self p_buttonForPoint:self.currentPoint];
+    BOOL isNewButton  = [self p_addNewButton:button];
 
-    if (button && !button.isSelected) { // 触摸到一个新按钮,保存按钮并将按钮中心添加到路径.
+    if (CGPathIsEmpty(self.path)) return; // 连接到按钮才有必要绘制.
 
-        button.selected = YES;
-        [_buttons addObject:button];
-
-        CGFloat x = CGRectGetMidX(button.frame);
-        CGFloat y = CGRectGetMidY(button.frame);
-
-        if (!_path) {
-            _path = CGPathCreateMutable();
-        }
-
-        if (CGPathIsEmpty(_path)) {
-            CGPathMoveToPoint(_path, NULL, x, y);
-        } else {
-            isNewButton = YES;
-
-            // 如果连接到新按钮,根据 上一点(point1), 新按钮中点(point2), 上一按钮中点(point3) 计算重绘矩形范围.
-            // 该范围肯定是包含当前点的.
-            point2 = button.center;
-            point3 = CGPathGetCurrentPoint(_path);
-
-            CGPathAddLineToPoint(_path, NULL, x, y);
-        }
+    // 如果连接到新按钮,根据 上一点(point1), 新按钮中点(point2), 上一按钮中点(point3) 计算重绘矩形范围.
+    if (isNewButton) {
+        point2 = button.center;
+        point3 = [self.buttons[self.buttons.count - 2] center];
     }
-
-    if (CGPathIsEmpty(_path)) return; // 连接到按钮才有必要绘制.
-
     // 如果未连接到新按钮,根据 上一点(point1), 当前点(point2), 上一按钮中点(point3) 计算重绘矩形范围.
-    if (!isNewButton) {
-        point2 = _currentPoint;
-        point3 = CGPathGetCurrentPoint(_path);
+    else {
+        point2 = self.currentPoint;
+        point3 = CGPathGetCurrentPoint(self.path);
     }
 
     CGRect dirtyRect = [self p_dirtyRectForPoint1:point1
                                            point2:point2
                                            point3:point3
-                                     andLineWidth:kLXLineWidth];
+                                     andLineWidth:kLineWidth];
     [self setNeedsDisplayInRect:dirtyRect];
 }
 
-
-/** 触摸结束处理. */
-- (void)p_handleForTouchesEnded:(NSSet *)touches
+- (BOOL)p_addNewButton:(UIButton *)button
 {
-    if (CGPathIsEmpty(_path)) return; // 连接到按钮才有必要进一步处理.
+    if (!button || button.isSelected) return NO;
 
-    // 判断密码正误.
+    button.selected = YES;
+    [self.buttons addObject:button];
+
+    if (!self.path) {
+        self.path = CGPathCreateMutable();
+    }
+
+    if (CGPathIsEmpty(self.path)) {
+        CGPathMoveToPoint(self.path, NULL, button.center.x, button.center.y);
+        return NO; // 第一个按钮不按新按钮算.
+    } else {
+        CGPathAddLineToPoint(self.path, NULL, button.center.x, button.center.y);
+        return YES;
+    }
+}
+
+#pragma mark - 触摸结束处理
+
+- (void)p_handleForTouchesEndedOrCancelled:(NSSet *)touches
+{
+    if (CGPathIsEmpty(self.path)) return; // 连接到按钮才有必要进一步处理.
+
+    BOOL isCorrect = [self p_checkPassword];
+
+    void (^completion)() = [self p_redrawByAccordingToIsCorrect:isCorrect];
+
+    [self p_clearScreenWithCompletion:completion];
+}
+
+- (BOOL)p_checkPassword
+{
     NSMutableString *password = [NSMutableString stringWithCapacity:9];
-    for (UIButton *button in _buttons) {
+    for (UIButton *button in self.buttons) {
         [password appendFormat:@"%ld",(long)button.tag];
     }
-    BOOL isCorrect = _completeHandle ? _completeHandle(password) : NO;
+    return self.completeHandle ? self.completeHandle(password) : NO;
+}
 
-    // 根据正误重新绘制对应颜色的线条并显示 HUD.
-    void (^handleBlock)();
+- (void (^)())p_redrawByAccordingToIsCorrect:(BOOL)isCorrect
+{
+    void (^completion)();
 
     if (isCorrect) {
-        handleBlock = _successHandle;
-        _lineColor  = [UIColor greenColor];
+        completion  = self.successHandle;
+        self.lineColor = [UIColor greenColor];
 
         [MBProgressHUD lx_showHudForSuccess:@"终于对了...O(∩_∩)O~"];
     }
     else {
-        handleBlock = _failureHandle;
-        _lineColor  = [UIColor redColor];
+        completion  = self.failureHandle;
+        self.lineColor = [UIColor redColor];
 
         [MBProgressHUD lx_showHudForError:@"密码不对...⊙﹏⊙汗"];
     }
 
-    _currentPoint = CGPathGetCurrentPoint(_path); // 为了不将松手时的触摸点绘制进去,导致一根线连到外面.
+    // 为了不将松手时的触摸点绘制进去,导致一根线连到外面.
+    self.currentPoint = CGPathGetCurrentPoint(self.path);
     [self setNeedsDisplay];
 
+    return completion;
+}
+
+- (void)p_clearScreenWithCompletion:(void (^)())completion
+{
     // 让线条显示 1s 再清除屏幕上的线条.
     dispatch_time_t when = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
     dispatch_after(when, dispatch_get_main_queue(), ^{
 
-        [_buttons makeObjectsPerformSelector:@selector(setSelected:) withObject:@(NO)];
-        [_buttons removeAllObjects];
-        _lineColor = LX_LINE_COLOR;
+        [self.buttons makeObjectsPerformSelector:@selector(setSelected:) withObject:@(NO)];
+        [self.buttons removeAllObjects];
 
-        CGPathRelease(_path);
-        _path = NULL;
+        self.lineColor = LXLineColor();
+
+        if (self.path) {
+            CGPathRelease(self.path);
+            self.path = NULL;
+        }
 
         [self setNeedsDisplay];
 
-        if (handleBlock) handleBlock();
+        if (completion) completion();
     });
 }
 

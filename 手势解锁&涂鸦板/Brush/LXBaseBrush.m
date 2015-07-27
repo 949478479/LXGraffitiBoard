@@ -18,7 +18,25 @@
 #import "LXRectangleBrush.h"
 
 
+@interface LXBaseBrush ()
+
+/** 是否需要绘制. */
+@property (nonatomic, readwrite) BOOL needsDraw;
+
+/** 初始点. */
+@property (nonatomic, readwrite) CGPoint startPoint;
+
+/** 上一点. */
+@property (nonatomic, readwrite) CGPoint previousPoint;
+
+/** 当前点. */
+@property (nonatomic, readwrite) CGPoint currentPoint;
+
+@end
+
+
 @implementation LXBaseBrush
+@synthesize lineWidth = _lineWidth, lineColor = _lineColor;
 
 + (id<LXPaintBrush>)brushWithType:(LXBrushType)brushType
 {
@@ -57,21 +75,21 @@
 
 - (void)beginAtPoint:(CGPoint)point
 {
-    _startPoint    = point;
-    _currentPoint  = point;
-    _previousPoint = point;
-    _needsDraw     = YES;
+    self.startPoint    = point;
+    self.currentPoint  = point;
+    self.previousPoint = point;
+    self.needsDraw     = YES;
 }
 
 - (void)moveToPoint:(CGPoint)point
 {
-    _previousPoint = _currentPoint;
-    _currentPoint  = point;
+    self.previousPoint = self.currentPoint;
+    self.currentPoint  = point;
 }
 
 - (void)end
 {
-    _needsDraw = NO;
+    self.needsDraw = NO;
 }
 
 - (void)drawInContext:(CGContextRef)context
@@ -84,10 +102,10 @@
 - (CGRect)redrawRect
 {
     // 根据 起点, 上一点, 当前点 三点计算包含三点的最小重绘矩形.适用于画矩形,椭圆之类的图案.
-    CGFloat minX = fmin(fmin(_startPoint.x, _previousPoint.x), _currentPoint.x) - _lineWidth / 2;
-    CGFloat minY = fmin(fmin(_startPoint.y, _previousPoint.y), _currentPoint.y) - _lineWidth / 2;
-    CGFloat maxX = fmax(fmax(_startPoint.x, _previousPoint.x), _currentPoint.x) + _lineWidth / 2;
-    CGFloat maxY = fmax(fmax(_startPoint.y, _previousPoint.y), _currentPoint.y) + _lineWidth / 2;
+    CGFloat minX = fmin(fmin(self.startPoint.x, self.previousPoint.x), self.currentPoint.x) - self.lineWidth / 2;
+    CGFloat minY = fmin(fmin(self.startPoint.y, self.previousPoint.y), self.currentPoint.y) - self.lineWidth / 2;
+    CGFloat maxX = fmax(fmax(self.startPoint.x, self.previousPoint.x), self.currentPoint.x) + self.lineWidth / 2;
+    CGFloat maxY = fmax(fmax(self.startPoint.y, self.previousPoint.y), self.currentPoint.y) + self.lineWidth / 2;
 
     return CGRectMake(minX, minY, maxX - minX, maxY - minY);
 }
@@ -96,8 +114,8 @@
 
 - (void)configureContext:(CGContextRef)context
 {
-    CGContextSetLineWidth(context, _lineWidth);
-    CGContextSetStrokeColorWithColor(context, _lineColor.CGColor);
+    CGContextSetLineWidth(context, self.lineWidth);
+    CGContextSetStrokeColorWithColor(context, self.lineColor.CGColor);
     CGContextSetLineCap(context, kCGLineCapRound);
     CGContextSetLineJoin(context, kCGLineJoinRound);
 }

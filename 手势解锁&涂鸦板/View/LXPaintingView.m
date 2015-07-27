@@ -11,15 +11,10 @@
 #import "LXPaintingLayer.h"
 
 
-#define LXRoundDown(x, scale) ({ \
-    CGFloat result; \
-    if ( (scale) == 2.0 ) { \
-        result = (NSInteger)( (x) * 2.0 ) / 2; \
-    } else { \
-        result = (NSInteger)(x); \
-    } \
-    result; \
-})
+static inline CGFloat LXRoundDown(CGFloat x, CGFloat scale)
+{
+    return (scale == 2.0) ? (NSInteger)( x * scale ) / 2 : (NSInteger)x;
+}
 
 
 /** 保存失败弹窗标题. */
@@ -42,10 +37,10 @@
 @interface LXPaintingView ()
 
 /** 照片图层. */
-@property (nonatomic) CALayer *imageLayer;
+@property (nonatomic, strong) CALayer *imageLayer;
 
 /** 涂鸦图层. */
-@property (nonatomic) LXPaintingLayer *paintingLayer;
+@property (nonatomic, strong) LXPaintingLayer *paintingLayer;
 
 /** 能否撤销. */
 @property (nonatomic, readwrite) BOOL canUndo;
@@ -55,9 +50,6 @@
 
 /** 是否应该开始触摸系列事件. */
 @property (nonatomic) BOOL touchShouldBegin;
-
-/** 照片图层的 frame. */
-@property (nonatomic) CGRect imageLayerFrame;
 
 @end
 
@@ -85,10 +77,12 @@
     return self;
 }
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdirect-ivar-access"
 - (void)p_commonInit
 {
-    _paintingLayer = [LXPaintingLayer layer];
-    _imageLayer    = [CALayer layer];
+    _paintingLayer            = [LXPaintingLayer layer];
+    _imageLayer               = [CALayer layer];
     _imageLayer.contentsScale = [UIScreen mainScreen].scale;
 
     [_imageLayer addSublayer:_paintingLayer];
@@ -96,24 +90,22 @@
 
     [_paintingLayer addObserver:self
                      forKeyPath:@"canUndo"
-                        options:(NSKeyValueObservingOptions)0
+                        options:(NSKeyValueObservingOptions)kNilOptions
                         context:NULL];
     [_paintingLayer addObserver:self
                      forKeyPath:@"canRedo"
-                        options:(NSKeyValueObservingOptions)0
+                        options:(NSKeyValueObservingOptions)kNilOptions
                         context:NULL];
 }
+#pragma clang diagnostic pop
 
 - (void)layoutSubviews
 {
     [super layoutSubviews];
 
-    if (CGRectIsEmpty(_imageLayerFrame)) {
-        _imageLayer.frame    = self.bounds;
-        _paintingLayer.frame = _imageLayer.bounds;
-    } else {
-        _imageLayer.frame    = _imageLayerFrame;
-        _paintingLayer.frame = _imageLayer.bounds;
+    if (CGRectIsEmpty(self.imageLayer.frame)) {
+        self.imageLayer.frame    = self.bounds;
+        self.paintingLayer.frame = self.bounds;
     }
 }
 
@@ -121,34 +113,34 @@
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    CGPoint point = [touches.anyObject locationInView:self];
-    point = [_imageLayer convertPoint:point fromLayer:self.layer];
+    CGPoint point = [self.imageLayer convertPoint:[touches.anyObject locationInView:self]
+                                        fromLayer:self.layer];
 
-    _touchShouldBegin = CGRectContainsPoint(_imageLayer.bounds, point);
+    self.touchShouldBegin = CGRectContainsPoint(self.imageLayer.bounds, point);
 
-    if (_touchShouldBegin) {
-        [_paintingLayer touchAction:touches.anyObject];
+    if (self.touchShouldBegin) {
+        [self.paintingLayer touchAction:touches.anyObject];
     }
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (_touchShouldBegin) {
-        [_paintingLayer touchAction:touches.anyObject];
+    if (self.touchShouldBegin) {
+        [self.paintingLayer touchAction:touches.anyObject];
     }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (_touchShouldBegin) {
-        [_paintingLayer touchAction:touches.anyObject];
+    if (self.touchShouldBegin) {
+        [self.paintingLayer touchAction:touches.anyObject];
     }
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    if (_touchShouldBegin) {
-        [_paintingLayer touchAction:touches.anyObject];
+    if (self.touchShouldBegin) {
+        [self.paintingLayer touchAction:touches.anyObject];
     }
 }
 
@@ -156,9 +148,9 @@
 
 - (void)setBackgroundImage:(UIImage *)image
 {
-    if (!image && !_imageLayer.contents) return;
+    if (!image && !self.imageLayer.contents) return;
 
-    [_paintingLayer clear];
+    [self.paintingLayer clear];
 
     [CATransaction begin];
     [CATransaction setDisableActions:YES];
@@ -190,33 +182,31 @@
     }
 
     // 调整照片图层以及涂鸦图层,使之匹配图片大小.
-    _imageLayer.position = (CGPoint) { layerWidth / 2, layerHeight / 2 };
-    _imageLayer.bounds   = (CGRect)  { .size = { imageWidth ?: layerWidth, imageHeight ?: layerHeight } };
-    _paintingLayer.frame = _imageLayer.bounds;
-    _imageLayerFrame     = _imageLayer.frame;
+    self.imageLayer.position = (CGPoint){ layerWidth / 2, layerHeight / 2 };
+    self.imageLayer.bounds   = (CGRect){ .size = { imageWidth ?: layerWidth, imageHeight ?: layerHeight } };
+    self.paintingLayer.frame = self.imageLayer.bounds;
 
-    _imageLayer.contents = (__bridge id)image.CGImage;
+    self.imageLayer.contents = (__bridge id)image.CGImage;
 
     [CATransaction commit];
 }
 
 - (UIImage *)backgroundImage
 {
-    return [UIImage imageWithCGImage:(__bridge CGImageRef)(_imageLayer.contents)];
+    return [UIImage imageWithCGImage:(__bridge CGImageRef)(self.imageLayer.contents)];
 }
 
 - (void)setPaintBrush:(id<LXPaintBrush>)paintBrush
 {
-    _paintingLayer.paintBrush = paintBrush;
+    self.paintingLayer.paintBrush = paintBrush;
 }
 
 - (id<LXPaintBrush>)paintBrush
 {
-    return _paintingLayer.paintBrush;
+    return self.paintingLayer.paintBrush;
 }
 
 #pragma mark - 清屏和撤销
-
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
@@ -235,120 +225,43 @@
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-property-ivar"
-
 - (BOOL)canUndo
 {
-    return _paintingLayer.canUndo;
+    return self.paintingLayer.canUndo;
 }
 
 - (BOOL)canRedo
 {
-    return _paintingLayer.canRedo;
+    return self.paintingLayer.canRedo;
 }
-
 #pragma clang diagnostic pop
 
 - (void)clear
 {
-    [_paintingLayer clear];
+    [self.paintingLayer clear];
 }
 
 - (void)undo
 {
-    [_paintingLayer undo];
+    [self.paintingLayer undo];
 }
 
 - (void)redo
 {
-    [_paintingLayer redo];
+    [self.paintingLayer redo];
 }
 
 #pragma mark - 保存图片
 
 - (void)saveToPhotosAlbum
 {
-/*  // 之前的实现,感觉太麻烦了.
-
-    // 将当前图层内容渲染为图片.
-    UIGraphicsBeginImageContextWithOptions(self.bounds.size, YES, 0);
-    [self.layer renderInContext:UIGraphicsGetCurrentContext()];
-    UIImage *renderedImage = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-
-    // 相册中的原始图片宽高.
-    CGSize  originalImageSize   = _imageView.image.size;
-    CGFloat originalImageWidth  = originalImageSize.width;
-    CGFloat originalImageHeight = originalImageSize.height;
-
-    // 相框宽高.
-    CGFloat imageViewWidth  = CGRectGetWidth(_imageView.bounds);
-    CGFloat imageViewHeight = CGRectGetHeight(_imageView.bounds);
-
-    // 渲染的图片的实际显示宽高.
-    CGFloat renderedImageActualWidth  = imageViewHeight * originalImageWidth / originalImageHeight;
-    CGFloat renderedImageActualHeight = imageViewWidth * originalImageHeight / originalImageWidth;
-
-    // 获取渲染的图片对应的 CGImage.
-    CGImageRef CG_renderedImage       = renderedImage.CGImage;
-    size_t     CG_renderedImageWidth  = CGImageGetWidth(CG_renderedImage);
-    size_t     CG_renderedImageHeight = CGImageGetHeight(CG_renderedImage);
-
-    UIImage *finalImage;            // 处理后的最终图片.
-    CGRect   clipRect = CGRectNull; // 裁剪范围.
-
-    if (renderedImageActualWidth < imageViewWidth) { // 图片两侧有空白.
-
-        // 换算成像素为单位,为了配合 CGImage.
-        CGFloat renderedImageWidthForPixel = [UIScreen mainScreen].scale * renderedImageActualWidth;
-
-        // CGImage 是以像素为单位计算的.
-        // 另外 CGImageCreateWithImageInRect 函数先对 rect 调用 CGRectIntegral 函数进行舍入处理.
-        // 如果有小数,很可能造成多截取1-2像素,结果就是导致图片外的空白图层被截取,造成边缘有条极细但能看出来的白线.
-        // 因此这里先四舍五入浮点数到"整数",从而避免上述情况.
-        clipRect = (CGRect) {
-            round((CG_renderedImageWidth - renderedImageWidthForPixel) / 2),
-            0,
-            round(renderedImageWidthForPixel),
-            CG_renderedImageHeight
-        };
-
-    } else if (renderedImageActualHeight < imageViewHeight) { // 图片上下有空白.
-
-        CGFloat renderedImageHeightForPixel = [UIScreen mainScreen].scale * renderedImageActualHeight;
-
-        clipRect = (CGRect) {
-            0,
-            round((CG_renderedImageHeight - renderedImageHeightForPixel) / 2),
-            CG_renderedImageWidth,
-            round(renderedImageHeightForPixel),
-        };
-
-    } else { // 由于是 SacleAspectFit, 因此若两边都没空白说明刚好吻合.
-
-        finalImage = renderedImage;
+    UIGraphicsBeginImageContextWithOptions(self.imageLayer.bounds.size, YES, 0);
+    if (self.imageLayer.contents) {
+        [self.imageLayer renderInContext:UIGraphicsGetCurrentContext()];
+    } else {
+        // 没有图片时需用父图层渲染,用 imageLayer 会黑乎乎一片.而且不知为何 paintingLayer 渲染出来也是黑的.
+        [self.layer renderInContext:UIGraphicsGetCurrentContext()];
     }
-
-    if (!CGRectIsNull(clipRect)) {
-
-        // 裁剪渲染出的图片中实际有图片的部分,去掉空白区域.
-        CGImageRef CG_clippedImage = CGImageCreateWithImageInRect(CG_renderedImage, clipRect);
-
-        // 将裁剪后的 CGImage 转换为最终的 UIImage.
-        finalImage = [UIImage imageWithCGImage:CG_clippedImage
-                                         scale:renderedImage.scale
-                                   orientation:UIImageOrientationUp];
-        CGImageRelease(CG_clippedImage);
-    }
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        UIImageWriteToSavedPhotosAlbum(finalImage,
-                                       self,
-                                       @selector(p_image:didFinishSavingWithError:contextInfo:),
-                                       NULL);
-    });
-*/
-    UIGraphicsBeginImageContextWithOptions(_imageLayer.bounds.size, YES, 0);
-    [_imageLayer renderInContext:UIGraphicsGetCurrentContext()];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
 
@@ -374,7 +287,7 @@
         actionTitle = LX_SAVE_FAILURE_ACTION_TITLE;
     }
     else {
-        title = LX_SAVE_SUCCESS_TITLE;
+        title       = LX_SAVE_SUCCESS_TITLE;
         actionTitle = LX_SAVE_SUCCESS_ACTION_TITLE;
     }
 

@@ -14,6 +14,9 @@
 /** 关联的视图控制器. */
 @property (nonatomic, weak) IBOutlet UIViewController *viewController;
 
+/** 选中的图片. */
+@property (nonatomic, readwrite, strong) UIImage *selectedImage;
+
 @end
 
 
@@ -23,19 +26,15 @@
 
 - (IBAction)pickImageAction:(UIBarButtonItem *)sender
 {
-    UIImagePickerController *pickerVC = ({
-        pickerVC = [UIImagePickerController new];
+    UIImagePickerController *pickerVC = [UIImagePickerController new];
 
-        pickerVC.delegate   = self;
-        pickerVC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    pickerVC.delegate   = self;
+    pickerVC.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
 
-        pickerVC.modalPresentationStyle = UIModalPresentationPopover;
-        pickerVC.popoverPresentationController.barButtonItem = sender;
+    pickerVC.modalPresentationStyle = UIModalPresentationPopover;
+    pickerVC.popoverPresentationController.barButtonItem = sender;
 
-        pickerVC;
-    });
-
-    [_viewController presentViewController:pickerVC animated:YES completion:nil];
+    [self.viewController presentViewController:pickerVC animated:YES completion:nil];
 }
 
 #pragma mark - UIImagePickerControllerDelegate
@@ -43,15 +42,15 @@
 - (void)imagePickerController:(UIImagePickerController *)picker
     didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    _selectedImage = info[UIImagePickerControllerOriginalImage];
+    self.selectedImage = info[UIImagePickerControllerOriginalImage];
     [self sendActionsForControlEvents:UIControlEventValueChanged];
     
-    [_viewController dismissViewControllerAnimated:YES completion:nil];
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    [_viewController dismissViewControllerAnimated:YES completion:nil];
+    [self.viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

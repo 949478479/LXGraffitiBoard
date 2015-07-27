@@ -35,19 +35,6 @@ typedef NS_ENUM(NSUInteger, LXBrushType) {
 
 @interface LXBaseBrush : NSObject <LXPaintBrush>
 
-/** 线条粗细. */
-@property (nonatomic) CGFloat lineWidth;
-
-/** 线条颜色. */
-@property (nonatomic) UIColor *lineColor;
-
-/** 需要重绘的矩形范围. */
-@property (nonatomic, readonly) CGRect redrawRect; 
-
-/** 是否需要绘制. */
-@property (nonatomic, readonly) BOOL needsDraw;
-
-
 /** 初始点. */
 @property (nonatomic, readonly) CGPoint startPoint;
 

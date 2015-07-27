@@ -7,31 +7,34 @@
 
 #import "RSSelectionLayer.h"
 
-
+/*
 @interface RSSelectionLayer ()
 
 @property (nonatomic, strong) CGColorRef outerRingColor __attribute__((NSObject));
 @property (nonatomic, strong) CGColorRef innerRingColor __attribute__((NSObject));
 
 @end
-
+*/
 @implementation RSSelectionLayer
 
 - (void)drawInContext:(CGContextRef)ctx {
+    /*
     if (!self.outerRingColor || !self.innerRingColor) {
         self.outerRingColor = [[UIColor colorWithWhite:1 alpha:0.4] CGColor];
         self.innerRingColor = [[UIColor colorWithWhite:0 alpha:1] CGColor];
     }
+    */
     CGRect rect = self.bounds;
     
     CGContextSetLineWidth(ctx, 3);
-    CGContextSetStrokeColorWithColor(ctx, self.outerRingColor);
+//    CGContextSetStrokeColorWithColor(ctx, self.outerRingColor);
+    CGContextSetRGBStrokeColor(ctx, 1, 1, 1, 0.4); // 这有个内存泄露,改成这样好了.
     CGContextStrokeEllipseInRect(ctx, CGRectInset(rect, 1.5, 1.5));
     
     CGContextSetLineWidth(ctx, 2);
-    CGContextSetStrokeColorWithColor(ctx, self.innerRingColor);
+//    CGContextSetStrokeColorWithColor(ctx, self.innerRingColor);
+    CGContextSetRGBStrokeColor(ctx, 0, 0, 0, 1.0);
     CGContextStrokeEllipseInRect(ctx, CGRectInset(rect, 3, 3));
 }
 
 @end
-

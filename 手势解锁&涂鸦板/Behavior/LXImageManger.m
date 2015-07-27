@@ -10,17 +10,21 @@
 
 
 /** 自己的图片缓存文件夹路径. */
-#define LX_IMAGE_CACHE_PATH \
-    [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject] \
-        stringByAppendingPathComponent:@"LXImageCache"]
+static inline NSString * LXImageCachesPath()
+{
+    return [[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) firstObject]
+            stringByAppendingPathComponent:@"LXImageCaches"];
+}
 
 /** 指定缓存文件索引并生成保存路径. */
-#define LXCacheImagePath(imageIndex) \
-    [LX_IMAGE_CACHE_PATH stringByAppendingPathComponent: \
-        [NSString stringWithFormat:@"%ld.png", (long)(imageIndex)]]
+static inline NSString * LXImageCachePathForIndex(NSInteger imageIndex)
+{
+    return [LXImageCachesPath() stringByAppendingPathComponent:
+            [NSString stringWithFormat:@"%ld.png", (long)(imageIndex)]];
+}
 
 /** 无效索引. */
-static const NSInteger kLXInvalidIndex = -1;
+static const NSInteger kInvalidIndex = -1;
 
 
 @interface LXImageManger ()
@@ -32,7 +36,7 @@ static const NSInteger kLXInvalidIndex = -1;
 @property (nonatomic) NSUInteger totalOfImages;
 
 /** 读写图片的串行队列. */
-@property (nonatomic) dispatch_queue_t imageIOQueue;
+@property (nonatomic, strong) dispatch_queue_t imageIOQueue;
 
 @end
 
@@ -41,7 +45,7 @@ static const NSInteger kLXInvalidIndex = -1;
 
 #pragma mark - 获取图片管理者
 
-+ (instancetype)sharedManger
++ (instancetype)sharedImageManger
 {
     static id sharedInstance;
     static dispatch_once_t onceToken;
@@ -53,7 +57,7 @@ static const NSInteger kLXInvalidIndex = -1;
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
-    return [self sharedManger];
+    return [self sharedImageManger];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -65,9 +69,9 @@ static const NSInteger kLXInvalidIndex = -1;
 {
     self = [super init];
     if (self) {
-        _imageIndex   = kLXInvalidIndex;
+        _imageIndex   = kInvalidIndex;
         _imageIOQueue = dispatch_queue_create("com.nizi.imageIOQueue", DISPATCH_QUEUE_SERIAL);
-        [[NSFileManager defaultManager] createDirectoryAtPath:LX_IMAGE_CACHE_PATH
+        [[NSFileManager defaultManager] createDirectoryAtPath:LXImageCachesPath()
                                   withIntermediateDirectories:YES
                                                    attributes:nil
                                                         error:NULL];
@@ -79,12 +83,12 @@ static const NSInteger kLXInvalidIndex = -1;
 
 - (void)addImage:(UIImage *)image
 {
-    _totalOfImages = ++_imageIndex + 1;
+    self.totalOfImages = ++self.imageIndex + 1;
 
     // 后台写入硬盘.
-    NSInteger index = _imageIndex;
-    dispatch_async(_imageIOQueue, ^{
-        [UIImagePNGRepresentation(image) writeToFile:LXCacheImagePath(index) atomically:YES];
+    NSInteger index = self.imageIndex;
+    dispatch_async(self.imageIOQueue, ^{
+        [UIImagePNGRepresentation(image) writeToFile:LXImageCachePathForIndex(index) atomically:YES];
     });
 }
 
@@ -92,18 +96,18 @@ static const NSInteger kLXInvalidIndex = -1;
 
 - (BOOL)canUndo
 {
-    return _imageIndex >= 0;
+    return self.imageIndex >= 0;
 }
 
 - (UIImage *)imageForUndo
 {
     if (![self canUndo]) return nil;
 
-    if (--_imageIndex == kLXInvalidIndex) return nil;
+    if (--self.imageIndex == kInvalidIndex) return nil;
 
     __block UIImage *image;
-    dispatch_sync(_imageIOQueue, ^{
-        image = [UIImage imageWithContentsOfFile:LXCacheImagePath(_imageIndex)];
+    dispatch_sync(self.imageIOQueue, ^{
+        image = [UIImage imageWithContentsOfFile:LXImageCachePathForIndex(self.imageIndex)];
     });
     return image;
 }
@@ -112,7 +116,7 @@ static const NSInteger kLXInvalidIndex = -1;
 
 - (BOOL)canRedo
 {
-    return ((NSUInteger)_imageIndex + 1) < _totalOfImages;
+    return ((NSUInteger)self.imageIndex + 1) < self.totalOfImages;
 }
 
 - (UIImage *)imageForRedo
@@ -120,8 +124,8 @@ static const NSInteger kLXInvalidIndex = -1;
     if (![self canRedo]) return nil;
 
     __block UIImage *image;
-    dispatch_sync(_imageIOQueue, ^{
-        image = [UIImage imageWithContentsOfFile:LXCacheImagePath(++_imageIndex)];
+    dispatch_sync(self.imageIOQueue, ^{
+        image = [UIImage imageWithContentsOfFile:LXImageCachePathForIndex(++self.imageIndex)];
     });
     return image;
 }
@@ -130,7 +134,15 @@ static const NSInteger kLXInvalidIndex = -1;
 
 - (void)removeAllImages
 {
-    _imageIndex = kLXInvalidIndex;
+    self.imageIndex = kInvalidIndex;
+
+    dispatch_sync(self.imageIOQueue, ^{
+        [[NSFileManager defaultManager] removeItemAtPath:LXImageCachesPath() error:NULL];
+        [[NSFileManager defaultManager] createDirectoryAtPath:LXImageCachesPath()
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error:NULL];
+    });
 }
 
 @end

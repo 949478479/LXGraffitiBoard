@@ -12,6 +12,6 @@
 @interface LXImagePicker : UIControl
 
 /** 选中的图片. */
-@property (nonatomic, readonly) UIImage *selectedImage;
+@property (nonatomic, readonly, strong) UIImage *selectedImage;
 
 @end

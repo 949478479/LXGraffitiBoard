@@ -680,8 +680,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
-					"-Wno-direct-ivar-access",
-					"-Wno-implicit-retain-self",
+					"-Weverything",
 					"-Wno-gnu-statement-expression",
 					"-Wno-objc-missing-property-synthesis",
 					"-Wno-gnu-conditional-omitted-operand",
@@ -697,8 +696,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
-					"-Wno-direct-ivar-access",
-					"-Wno-implicit-retain-self",
+					"-Weverything",
 					"-Wno-gnu-statement-expression",
 					"-Wno-objc-missing-property-synthesis",
 					"-Wno-gnu-conditional-omitted-operand",

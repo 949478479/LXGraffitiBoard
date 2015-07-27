@@ -13,19 +13,19 @@
 @interface LXColorAdjuster () <RSColorPickerViewDelegate>
 
 /** 预览窗. */
-@property (nonatomic) IBOutlet UIView *previewView;
+@property (nonatomic, strong) IBOutlet UIView *previewView;
 
 /** RGBA 标签. */
-@property (nonatomic) IBOutlet UILabel *RGBALabel;
+@property (nonatomic, strong) IBOutlet UILabel *RGBALabel;
 
 /** 透明度调节滑块. */
-@property (nonatomic) IBOutlet UISlider *opacitySlider;
+@property (nonatomic, strong) IBOutlet UISlider *opacitySlider;
 
 /** 亮度调节滑块. */
-@property (nonatomic) IBOutlet UISlider *brightnessSlider;
+@property (nonatomic, strong) IBOutlet UISlider *brightnessSlider;
 
 /** 颜色选择器. */
-@property (nonatomic) IBOutlet RSColorPickerView *colorPicker;
+@property (nonatomic, strong) IBOutlet RSColorPickerView *colorPicker;
 
 @end
 
@@ -48,38 +48,38 @@
 {
     _colorPicker = colorPicker;
 
-    _colorPicker.selectionColor = _paletteColor;
+    colorPicker.selectionColor  = self.paletteColor;
 
-    _opacitySlider.value    = _colorPicker.opacity;
-    _brightnessSlider.value = _colorPicker.brightness;
+    self.opacitySlider.value    = self.colorPicker.opacity;
+    self.brightnessSlider.value = self.colorPicker.brightness;
 }
 
 - (void)setOpacitySlider:(UISlider *)opacitySlider
 {
     _opacitySlider = opacitySlider;
 
-    _opacitySlider.value = _colorPicker.opacity;
+    opacitySlider.value = self.colorPicker.opacity;
 }
 
 - (void)setBrightnessSlider:(UISlider *)brightnessSlider
 {
     _brightnessSlider = brightnessSlider;
 
-    _brightnessSlider.value = _colorPicker.brightness;
+    brightnessSlider.value = self.colorPicker.brightness;
 }
 
 #pragma mark - 调节亮度
 
 - (IBAction)brightnessChangeAction:(UISlider *)sender
 {
-    _colorPicker.brightness = sender.value;
+    self.colorPicker.brightness = sender.value;
 }
 
 #pragma mark - 调节透明度
 
 - (IBAction)alphaChangeAction:(UISlider *)sender
 {
-    _colorPicker.opacity = sender.value;
+    self.colorPicker.opacity = sender.value;
 }
 
 #pragma mark - RSColorPickerViewDelegate
@@ -91,12 +91,12 @@
     CGFloat red, green, blue, alpha;
     [[colorPicker selectionColor] getRed:&red green:&green blue:&blue alpha:&alpha];
 
-    _paletteColor = color;
+    self.paletteColor = color;
     
-    _previewView.backgroundColor = color;
+    self.previewView.backgroundColor = color;
 
-    _RGBALabel.text = [NSString stringWithFormat:@"RGBA: %ld, %ld, %ld, %.2f",
-        (long)(red * 255), (long)(green * 255), (long)(blue * 255), alpha];
+    self.RGBALabel.text = [NSString stringWithFormat:@"RGBA: %ld, %ld, %ld, %.2f",
+                           (long)(red * 255), (long)(green * 255), (long)(blue * 255), alpha];
 }
 
 @end

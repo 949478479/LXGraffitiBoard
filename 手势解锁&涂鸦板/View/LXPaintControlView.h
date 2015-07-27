@@ -12,6 +12,6 @@
 @interface LXPaintControlView : UIView
 
 /** 选中的颜色. */
-@property (nonatomic) UIColor *selectedColor;
+@property (nonatomic, strong) UIColor *selectedColor;
 
 @end
