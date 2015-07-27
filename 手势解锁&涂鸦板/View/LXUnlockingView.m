@@ -27,15 +27,15 @@ static inline UIColor * LXLineColor()
 
 
 @interface LXUnlockingView ()
-
-/** 线条颜色. */
-@property (nonatomic, strong) UIColor *lineColor;
+{
+    CGMutablePathRef _path; /** 连线路径. */
+}
 
 /** 当前触摸点. */
 @property (nonatomic) CGPoint currentPoint;
 
-/** 连线路径. */
-@property (nonatomic) CGMutablePathRef path;
+/** 线条颜色. */
+@property (nonatomic, strong) UIColor *lineColor;
 
 /** 选中的按钮们. */
 @property (nonatomic, strong) NSMutableArray *buttons;
@@ -144,11 +144,11 @@ static inline UIColor * LXLineColor()
 
 - (void)drawRect:(CGRect)rect
 {
-    if (!self.path || CGPathIsEmpty(self.path)) return;
+    if (!_path || CGPathIsEmpty(_path)) return;
 
     CGContextRef context = UIGraphicsGetCurrentContext();
 
-    CGContextAddPath(context, self.path);
+    CGContextAddPath(context, _path);
     CGContextAddLineToPoint(context, self.currentPoint.x, self.currentPoint.y);
 
     CGContextSetLineWidth(context, kLineWidth);
@@ -199,7 +199,7 @@ static inline UIColor * LXLineColor()
     UIButton *button  = [self p_buttonForPoint:self.currentPoint];
     BOOL isNewButton  = [self p_addNewButton:button];
 
-    if (CGPathIsEmpty(self.path)) return; // 连接到按钮才有必要绘制.
+    if (CGPathIsEmpty(_path)) return; // 连接到按钮才有必要绘制.
 
     // 如果连接到新按钮,根据 上一点(point1), 新按钮中点(point2), 上一按钮中点(point3) 计算重绘矩形范围.
     if (isNewButton) {
@@ -209,7 +209,7 @@ static inline UIColor * LXLineColor()
     // 如果未连接到新按钮,根据 上一点(point1), 当前点(point2), 上一按钮中点(point3) 计算重绘矩形范围.
     else {
         point2 = self.currentPoint;
-        point3 = CGPathGetCurrentPoint(self.path);
+        point3 = CGPathGetCurrentPoint(_path);
     }
 
     CGRect dirtyRect = [self p_dirtyRectForPoint1:point1
@@ -226,15 +226,15 @@ static inline UIColor * LXLineColor()
     button.selected = YES;
     [self.buttons addObject:button];
 
-    if (!self.path) {
-        self.path = CGPathCreateMutable();
+    if (!_path) {
+        _path = CGPathCreateMutable();
     }
 
-    if (CGPathIsEmpty(self.path)) {
-        CGPathMoveToPoint(self.path, NULL, button.center.x, button.center.y);
+    if (CGPathIsEmpty(_path)) {
+        CGPathMoveToPoint(_path, NULL, button.center.x, button.center.y);
         return NO; // 第一个按钮不按新按钮算.
     } else {
-        CGPathAddLineToPoint(self.path, NULL, button.center.x, button.center.y);
+        CGPathAddLineToPoint(_path, NULL, button.center.x, button.center.y);
         return YES;
     }
 }
@@ -243,7 +243,7 @@ static inline UIColor * LXLineColor()
 
 - (void)p_handleForTouchesEndedOrCancelled:(NSSet *)touches
 {
-    if (CGPathIsEmpty(self.path)) return; // 连接到按钮才有必要进一步处理.
+    if (CGPathIsEmpty(_path)) return; // 连接到按钮才有必要进一步处理.
 
     BOOL isCorrect = [self p_checkPassword];
 
@@ -279,7 +279,7 @@ static inline UIColor * LXLineColor()
     }
 
     // 为了不将松手时的触摸点绘制进去,导致一根线连到外面.
-    self.currentPoint = CGPathGetCurrentPoint(self.path);
+    self.currentPoint = CGPathGetCurrentPoint(_path);
     [self setNeedsDisplay];
 
     return completion;
@@ -296,9 +296,9 @@ static inline UIColor * LXLineColor()
 
         self.lineColor = LXLineColor();
 
-        if (self.path) {
-            CGPathRelease(self.path);
-            self.path = NULL;
+        if (_path) {
+            CGPathRelease(_path);
+            _path = NULL;
         }
 
         [self setNeedsDisplay];

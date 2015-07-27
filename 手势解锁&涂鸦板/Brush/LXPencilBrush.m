@@ -10,9 +10,9 @@
 
 
 @interface LXPencilBrush ()
-
-/** 绘图路径. */
-@property (nonatomic) CGMutablePathRef path;
+{
+    CGMutablePathRef _path; /** 绘图路径. */
+}
 
 /** 当前点. */
 @property (nonatomic) CGPoint currentPoint;
@@ -52,13 +52,13 @@
     self.currentPoint  = point;
 
     // 普通画笔比较特殊,要保证之前的每一个移动点都在,因此需要一条路径.
-    if (self.path) {
-        CGPathRelease(self.path);
+    if (_path) {
+        CGPathRelease(_path);
     }
-    self.path = CGPathCreateMutable();
+    _path = CGPathCreateMutable();
 
-    CGPathMoveToPoint   (self.path, NULL, point.x, point.y);
-    CGPathAddLineToPoint(self.path, NULL, point.x, point.y); // 为了点下去就能画一个点.
+    CGPathMoveToPoint   (_path, NULL, point.x, point.y);
+    CGPathAddLineToPoint(_path, NULL, point.x, point.y); // 为了点下去就能画一个点.
 }
 
 - (void)moveToPoint:(CGPoint)point
@@ -75,14 +75,14 @@
     self.previousPoint = self.currentPoint;
     self.currentPoint  = point;
 
-    CGPathAddLineToPoint(self.path, NULL, point.x, point.y);
+    CGPathAddLineToPoint(_path, NULL, point.x, point.y);
 }
 
 - (void)end
 {
-    if (self.path) {
-        CGPathRelease(self.path);
-        self.path = NULL;
+    if (_path) {
+        CGPathRelease(_path);
+        _path = NULL;
     }
     self.needsDraw = NO;
 }
@@ -105,7 +105,7 @@
     [super configureContext:context];
 
     // 普通画笔工具在基类的基础上添加自己自定义的路径即可.
-    CGContextAddPath(context, self.path);
+    CGContextAddPath(context, _path);
 }
 
 @end
