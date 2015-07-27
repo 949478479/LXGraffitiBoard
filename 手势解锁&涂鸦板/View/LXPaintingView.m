@@ -11,11 +11,11 @@
 #import "LXPaintingLayer.h"
 
 
-static inline CGFloat LXRoundDown(CGFloat x, CGFloat scale)
+/** 对图片像素进行向下舍入取整,不然截图边界可能会有很细的线. */
+static inline CGFloat LXPixelRoundDown(CGFloat x, CGFloat scale)
 {
-    return (scale == 2.0) ? (NSInteger)( x * scale ) / 2 : (NSInteger)x;
+    return (scale == 2.0) ? (NSInteger)(x * 2) / 2 : (NSInteger)x;
 }
-
 
 /** 保存失败弹窗标题. */
 #define LX_SAVE_FAILURE_TITLE                     @"哎呀"
@@ -177,8 +177,8 @@ static inline CGFloat LXRoundDown(CGFloat x, CGFloat scale)
 
         // 对图片宽高进行向下舍入的像素取整.
         CGFloat scale = [UIScreen mainScreen].scale;
-        imageWidth    = LXRoundDown(imageWidth, scale);
-        imageHeight   = LXRoundDown(imageHeight, scale);
+        imageWidth    = LXPixelRoundDown(imageWidth, scale);
+        imageHeight   = LXPixelRoundDown(imageHeight, scale);
     }
 
     // 调整照片图层以及涂鸦图层,使之匹配图片大小.
