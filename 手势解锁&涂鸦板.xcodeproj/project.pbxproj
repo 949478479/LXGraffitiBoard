@@ -179,7 +179,6 @@
 			isa = PBXGroup;
 			children = (
 				18C608F81B54DC310045FD64 /* Images.xcassets */,
-				189418841B51183E001BF956 /* Main.storyboard */,
 				189418751B511692001BF956 /* AppDelegate.h */,
 				189418761B511692001BF956 /* AppDelegate.m */,
 				189418771B511692001BF956 /* Info.plist */,
@@ -391,6 +390,7 @@
 		18C96D991B4767F7007A8192 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				189418841B51183E001BF956 /* Main.storyboard */,
 				18C4CE631B496BF200C53609 /* LXPaintingLayer.h */,
 				18C4CE641B496BF200C53609 /* LXPaintingLayer.m */,
 				18C96D931B476763007A8192 /* LXPaintingView.h */,
@@ -585,6 +585,7 @@
 				189418851B51183E001BF956 /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../Other;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

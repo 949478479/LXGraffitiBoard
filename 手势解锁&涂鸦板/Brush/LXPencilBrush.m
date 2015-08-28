@@ -14,11 +14,14 @@
     CGMutablePathRef _path; /** 绘图路径. */
 }
 
-/** 当前点. */
-@property (nonatomic) CGPoint currentPoint;
-
-/** 上一点. */
+/** 上次触摸结束点. */
 @property (nonatomic) CGPoint previousPoint;
+
+/** 当前中间点,即上次触摸结束点和当前触摸点的中点. */
+@property (nonatomic) CGPoint currentMiddlePoint;
+
+/** 上次中间点. */
+@property (nonatomic) CGPoint previousMiddlePoint;
 
 /** 是否需要绘制. */
 @property (nonatomic) BOOL needsDraw;
@@ -29,8 +32,7 @@
 @implementation LXPencilBrush
 
 // 普通画笔相对基类有些特殊,这里重写了几个属性,初始点干脆用不到.
-// needsDraw 需要根据两次移动间距决定,相应的 previousPoint 和 currentPoint 也并不是每次移动都一定刷新值.
-@synthesize currentPoint  = _currentPoint;
+// needsDraw 需要根据两次移动间距决定,相应的 previousPoint 也并不是每次移动都一定刷新值.
 @synthesize previousPoint = _previousPoint;
 @synthesize needsDraw     = _needsDraw;
 
@@ -47,9 +49,10 @@
 
 - (void)beginAtPoint:(CGPoint)point
 {
-    self.needsDraw     = YES;
-    self.previousPoint = point;
-    self.currentPoint  = point;
+    self.needsDraw           = YES;
+    self.previousPoint       = point;
+    self.previousMiddlePoint = point;
+    self.currentMiddlePoint  = point;
 
     // 普通画笔比较特殊,要保证之前的每一个移动点都在,因此需要一条路径.
     if (_path) {
@@ -70,12 +73,18 @@
         self.needsDraw = NO;
         return;
     }
+    self.needsDraw = YES;
 
-    self.needsDraw     = YES;
-    self.previousPoint = self.currentPoint;
-    self.currentPoint  = point;
+    self.previousMiddlePoint = self.currentMiddlePoint;
+    self.currentMiddlePoint  = CGPointMake((self.previousPoint.x + point.x) / 2,
+                                           (self.previousPoint.y + point.y) / 2);
 
-    CGPathAddLineToPoint(_path, NULL, point.x, point.y);
+    // 用当前中间点作为曲线终点,上次触摸结束点作为曲线控制点,能获得更平滑的线条.
+    CGPathAddQuadCurveToPoint(_path, NULL,
+                              self.previousPoint.x, self.previousPoint.y,
+                              self.currentMiddlePoint.x, self.currentMiddlePoint.y);
+
+    self.previousPoint = point;
 }
 
 - (void)end
@@ -89,11 +98,11 @@
 
 - (CGRect)redrawRect
 {
-    // 普通画笔和画矩形之类的不一样.每次重绘当前点和上一点之间的小矩形即可,没必要包含起点.
-    CGFloat minX = fmin(self.currentPoint.x, self.previousPoint.x) - self.lineWidth / 2;
-    CGFloat minY = fmin(self.currentPoint.y, self.previousPoint.y) - self.lineWidth / 2;
-    CGFloat maxX = fmax(self.currentPoint.x, self.previousPoint.x) + self.lineWidth / 2;
-    CGFloat maxY = fmax(self.currentPoint.y, self.previousPoint.y) + self.lineWidth / 2;
+    // 根据曲线起点,控制点,终点计算最小重绘范围.
+    CGFloat minX = fmin(fmin(self.currentMiddlePoint.x, self.previousMiddlePoint.x), self.previousPoint.x) - self.lineWidth / 2;
+    CGFloat minY = fmin(fmin(self.currentMiddlePoint.y, self.previousMiddlePoint.y), self.previousPoint.y) - self.lineWidth / 2;
+    CGFloat maxX = fmax(fmax(self.currentMiddlePoint.x, self.previousMiddlePoint.x), self.previousPoint.x) + self.lineWidth / 2;
+    CGFloat maxY = fmax(fmax(self.currentMiddlePoint.y, self.previousMiddlePoint.y), self.previousPoint.y) + self.lineWidth / 2;
 
     return CGRectMake(minX, minY, maxX - minX, maxY - minY);
 }
