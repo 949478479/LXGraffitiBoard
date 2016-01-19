@@ -41,7 +41,6 @@
 		18C608F61B54D9F80045FD64 /* RSGenerateOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608E41B54D9F80045FD64 /* RSGenerateOperation.m */; };
 		18C608F71B54D9F80045FD64 /* RSSelectionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C608E61B54D9F80045FD64 /* RSSelectionLayer.m */; };
 		18C608F91B54DC310045FD64 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C608F81B54DC310045FD64 /* Images.xcassets */; };
-		18C96D7E1B4765AE007A8192 /* ________Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D7D1B4765AE007A8192 /* ________Tests.m */; };
 		18C96D891B476643007A8192 /* LXUnlockingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D881B476643007A8192 /* LXUnlockingView.m */; };
 		18C96D951B476763007A8192 /* LXPaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D941B476763007A8192 /* LXPaintingView.m */; };
 		18C96D981B4767C0007A8192 /* LXPaintControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C96D971B4767C0007A8192 /* LXPaintControlView.m */; };
@@ -53,16 +52,6 @@
 		18CEC7C81B4D0FA400E39693 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CEC7C51B4D0FA400E39693 /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-Wno-unused-macros"; }; };
 		18CEC7CB1B4D11C800E39693 /* LXPaletteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18CEC7CA1B4D11C800E39693 /* LXPaletteViewController.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		18C96D781B4765AE007A8192 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 18C96D561B4765AE007A8192 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 18C96D5D1B4765AE007A8192;
-			remoteInfo = "手势解锁&涂鸦板";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		18078E8A1B4DB5EA000FA0D6 /* LXSquareBrush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSquareBrush.h; sourceTree = "<group>"; };
@@ -133,9 +122,6 @@
 		18C608E61B54D9F80045FD64 /* RSSelectionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSSelectionLayer.m; sourceTree = "<group>"; };
 		18C608F81B54DC310045FD64 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		18C96D5E1B4765AE007A8192 /* 手势解锁&涂鸦板.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "手势解锁&涂鸦板.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18C96D771B4765AE007A8192 /* 手势解锁&涂鸦板Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "手势解锁&涂鸦板Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		18C96D7C1B4765AE007A8192 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		18C96D7D1B4765AE007A8192 /* ________Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "________Tests.m"; sourceTree = "<group>"; };
 		18C96D871B476643007A8192 /* LXUnlockingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXUnlockingView.h; sourceTree = "<group>"; };
 		18C96D881B476643007A8192 /* LXUnlockingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXUnlockingView.m; sourceTree = "<group>"; };
 		18C96D931B476763007A8192 /* LXPaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXPaintingView.h; sourceTree = "<group>"; };
@@ -159,13 +145,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		18C96D5B1B4765AE007A8192 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		18C96D741B4765AE007A8192 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -342,7 +321,6 @@
 			isa = PBXGroup;
 			children = (
 				18C96D601B4765AE007A8192 /* 手势解锁&涂鸦板 */,
-				18C96D7A1B4765AE007A8192 /* 手势解锁&涂鸦板Tests */,
 				18C96D5F1B4765AE007A8192 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -351,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				18C96D5E1B4765AE007A8192 /* 手势解锁&涂鸦板.app */,
-				18C96D771B4765AE007A8192 /* 手势解锁&涂鸦板Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -368,23 +345,6 @@
 				189418741B511692001BF956 /* Other */,
 			);
 			path = "手势解锁&涂鸦板";
-			sourceTree = "<group>";
-		};
-		18C96D7A1B4765AE007A8192 /* 手势解锁&涂鸦板Tests */ = {
-			isa = PBXGroup;
-			children = (
-				18C96D7D1B4765AE007A8192 /* ________Tests.m */,
-				18C96D7B1B4765AE007A8192 /* Supporting Files */,
-			);
-			path = "手势解锁&涂鸦板Tests";
-			sourceTree = "<group>";
-		};
-		18C96D7B1B4765AE007A8192 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				18C96D7C1B4765AE007A8192 /* Info.plist */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		18C96D991B4767F7007A8192 /* View */ = {
@@ -435,24 +395,6 @@
 			productReference = 18C96D5E1B4765AE007A8192 /* 手势解锁&涂鸦板.app */;
 			productType = "com.apple.product-type.application";
 		};
-		18C96D761B4765AE007A8192 /* 手势解锁&涂鸦板Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 18C96D841B4765AE007A8192 /* Build configuration list for PBXNativeTarget "手势解锁&涂鸦板Tests" */;
-			buildPhases = (
-				18C96D731B4765AE007A8192 /* Sources */,
-				18C96D741B4765AE007A8192 /* Frameworks */,
-				18C96D751B4765AE007A8192 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				18C96D791B4765AE007A8192 /* PBXTargetDependency */,
-			);
-			name = "手势解锁&涂鸦板Tests";
-			productName = "手势解锁&涂鸦板Tests";
-			productReference = 18C96D771B4765AE007A8192 /* 手势解锁&涂鸦板Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -460,15 +402,11 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = LX;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = 949478479;
 				TargetAttributes = {
 					18C96D5D1B4765AE007A8192 = {
 						CreatedOnToolsVersion = 6.3.1;
-					};
-					18C96D761B4765AE007A8192 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 18C96D5D1B4765AE007A8192;
 					};
 				};
 			};
@@ -486,7 +424,6 @@
 			projectRoot = "";
 			targets = (
 				18C96D5D1B4765AE007A8192 /* 手势解锁&涂鸦板 */,
-				18C96D761B4765AE007A8192 /* 手势解锁&涂鸦板Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -499,13 +436,6 @@
 				18C608F91B54DC310045FD64 /* Images.xcassets in Resources */,
 				189418871B511849001BF956 /* Main.storyboard in Resources */,
 				18CEC7C71B4D0FA400E39693 /* MBProgressHUD.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		18C96D751B4765AE007A8192 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -560,23 +490,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		18C96D731B4765AE007A8192 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				18C96D7E1B4765AE007A8192 /* ________Tests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		18C96D791B4765AE007A8192 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 18C96D5D1B4765AE007A8192 /* 手势解锁&涂鸦板 */;
-			targetProxy = 18C96D781B4765AE007A8192 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		189418841B51183E001BF956 /* Main.storyboard */ = {
@@ -612,6 +526,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -679,6 +594,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "手势解锁&涂鸦板/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.949478479.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
 					"-Wno-gnu-statement-expression",
@@ -694,46 +610,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "手势解锁&涂鸦板/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.949478479.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
 					"-Wno-gnu-statement-expression",
 					"-Wno-objc-missing-property-synthesis",
 					"-Wno-gnu-conditional-omitted-operand",
 				);
-			};
-			name = Release;
-		};
-		18C96D851B4765AE007A8192 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "手势解锁&涂鸦板Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/手势解锁&涂鸦板.app/手势解锁&涂鸦板";
-			};
-			name = Debug;
-		};
-		18C96D861B4765AE007A8192 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "手势解锁&涂鸦板Tests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/手势解锁&涂鸦板.app/手势解锁&涂鸦板";
 			};
 			name = Release;
 		};
@@ -754,15 +637,6 @@
 			buildConfigurations = (
 				18C96D821B4765AE007A8192 /* Debug */,
 				18C96D831B4765AE007A8192 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		18C96D841B4765AE007A8192 /* Build configuration list for PBXNativeTarget "手势解锁&涂鸦板Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				18C96D851B4765AE007A8192 /* Debug */,
-				18C96D861B4765AE007A8192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

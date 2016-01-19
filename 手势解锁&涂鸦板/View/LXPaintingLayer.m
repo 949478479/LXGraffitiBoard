@@ -34,17 +34,7 @@
 
 @implementation LXPaintingLayer
 
-#pragma mark - 初始化
-
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        self.drawsAsynchronously = YES;
-        self.contentsScale       = [UIScreen mainScreen].scale;
-    }
-    return self;
-}
+#pragma mark - 禁用隐式动画
 
 - (id<CAAction>)actionForKey:(NSString *)event
 {
