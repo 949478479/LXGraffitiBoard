@@ -67,8 +67,8 @@
 - (void)moveToPoint:(CGPoint)point
 {
     // 移动距离小于笔画宽度一半,基本看不出来,没必要重绘.
-    CGFloat dx = point.x - self.currentPoint.x;
-    CGFloat dy = point.y - self.currentPoint.y;
+    CGFloat dx = point.x - self.previousPoint.x;
+    CGFloat dy = point.y - self.previousPoint.y;
     if ( (dx * dx + dy * dy) < (self.lineWidth * self.lineWidth / 4) ) {
         self.needsDraw = NO;
         return;
