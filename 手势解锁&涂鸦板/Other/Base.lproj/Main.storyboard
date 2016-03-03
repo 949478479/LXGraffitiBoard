@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2BY-QB-afp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2BY-QB-afp">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--涂鸦板-->
+        <!--View Controller-->
         <scene sceneID="B7L-x8-9Sw">
             <objects>
                 <viewController storyboardIdentifier="LXPaintViewController" title="涂鸦板" id="2BY-QB-afp" customClass="LXPaintViewController" sceneMemberID="viewController">
@@ -391,11 +392,11 @@
                         <viewControllerLayoutGuide type="bottom" id="f3b-gc-Aoz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="fwD-JW-fJs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6w4-f7-wy1" customClass="RSColorPickerView">
-                                <rect key="frame" x="20" y="20" width="280" height="280"/>
+                                <rect key="frame" x="20" y="20" width="335" height="335"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="6w4-f7-wy1" secondAttribute="height" id="eFU-z9-6M5"/>
                                 </constraints>
@@ -407,13 +408,13 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RGBA: 255, 255, 255, 1.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vma-Es-Pps">
-                                <rect key="frame" x="20" y="382" width="280" height="24"/>
+                                <rect key="frame" x="20" y="569" width="335" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6C-Jg-ryG">
-                                <rect key="frame" x="20" y="320" width="280" height="46"/>
+                                <rect key="frame" x="20" y="375" width="335" height="178"/>
                                 <color key="backgroundColor" red="0.73725490199999999" green="0.72941176470000002" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
@@ -422,25 +423,25 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="zCv-nt-nRa" userLabel="Opacity Slider">
-                                <rect key="frame" x="86" y="411" width="216" height="31"/>
+                                <rect key="frame" x="86" y="598" width="271" height="31"/>
                                 <connections>
                                     <action selector="alphaChangeAction:" destination="eba-Z0-YNC" eventType="valueChanged" id="2M8-eF-dvR"/>
                                 </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="78S-w1-Atl" userLabel="Brightness Slider">
-                                <rect key="frame" x="86" y="443" width="216" height="31"/>
+                                <rect key="frame" x="86" y="630" width="271" height="31"/>
                                 <connections>
                                     <action selector="brightnessChangeAction:" destination="eba-Z0-YNC" eventType="valueChanged" id="Cg0-45-SZh"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="亮度" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JIv-oI-hQo">
-                                <rect key="frame" x="20" y="446" width="40" height="24"/>
+                                <rect key="frame" x="20" y="633" width="40" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="透明度" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ef7-zg-aBT">
-                                <rect key="frame" x="20" y="414" width="60" height="24"/>
+                                <rect key="frame" x="20" y="601" width="60" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -471,7 +472,7 @@
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="colorSelector" destination="eba-Z0-YNC" id="Pn1-lZ-eKK"/>
                     </connections>
@@ -487,7 +488,7 @@
                     </connections>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="-98" y="514"/>
+            <point key="canvasLocation" x="-25.5" y="513.5"/>
         </scene>
         <!--手势解锁-->
         <scene sceneID="RAB-fI-N7y">
